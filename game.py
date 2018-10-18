@@ -85,14 +85,14 @@ def execute_observe(item_id):
     if item_id not in items:
         print("----------------------------------")
         print()
-        print("You are dissapointed not to find that in your inventory.\n")
+        print("You are disappointed not to find that in your inventory.\n")
         print("----------------------------------")
     else:
         item_id_name = items[item_id]
         if item_id_name not in inventory:
             print("----------------------------------")
             print()
-            print("You are dissapointed not to find that in your inventory.\n")
+            print("You are disappointed not to find that in your inventory.\n")
             print("----------------------------------")
             return
         
