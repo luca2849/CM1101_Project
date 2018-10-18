@@ -38,8 +38,6 @@ monster_list.append(geiger_tiger)
 monster_list.append(computer_on_a_scooter)
 monster_list.append(deceased_priest)
 
-print (len(monster_list))
-
 '''
 # code for generating a random monster name and description
 # replace x,y with range of monster in list.
