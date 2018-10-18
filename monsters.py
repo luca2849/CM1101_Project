@@ -1,6 +1,6 @@
 #python 3 monsters.py
-import random
-from time import sleep
+#import random
+#from time import sleep
 
 
 class monster:

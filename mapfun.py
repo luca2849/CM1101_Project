@@ -1,8 +1,7 @@
 #Python 3 mapfun.py
 from map import *
-from player import current_room
 
-def ascii_map():
+def ascii_map(current_room):
     position_dict = {'position_boss' : ' ', 'position9' : ' ', 'position8' : ' ', 
                  'position7' : ' ', 'position6' : ' ', 
                  'position5' : ' ', 'position4' : ' ','position3' : ' ', 
@@ -55,4 +54,4 @@ def ascii_map():
 
 #current_room = rooms["room_3"]
 
-print(ascii_map())
+#print(ascii_map())
