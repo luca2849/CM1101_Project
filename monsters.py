@@ -4,7 +4,7 @@
 
 class monster:
     '''Class for adding monsters
-       monster_id = monster('monster name', 'description', [drops])
+       monster_id = monster('monster name', 'description', tier, [drops])
        '''
     def __init__(self, name, description, tier, drops):
         self.name = name
@@ -37,9 +37,8 @@ kirill_riding_a_bear = monster('Kirill Riding a bear', '', 10, ['Trophy for Winn
 
 
 
-
-monster_list = [zombeez, crabs_with_abs, one_tonne_skeleton, half_a_giraffe, geiger_tiger, tequila_sheila, computer_on_a_scooter, deceased_priest, man_made_mermaid, big_horn_unicorn, tyrannosaurus_mex, dragon_in_a_wagon] #init list of monsters
-
+#init list of monsters
+monster_list = [zombeez, computer_on_a_scooter, tequila_sheila, crabs_with_abs, man_made_mermaid,half_a_giraffe, big_horn_unicorn, deceased_priest, one_tonne_skeleton, tyrannosaurus_mex, dragon_in_a_wagon, geiger_tiger]
 
 boss_list = [kirill_riding_a_bear] # init list of bosses
 
