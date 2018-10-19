@@ -48,6 +48,10 @@ monster_list = [zombeez, computer_on_a_scooter, tequila_sheila, crabs_with_abs, 
 
 boss_list = [kirill_riding_a_bear] # init list of bosses
 
+boss_hp = 300
+max_boss_hp = 300
+
+
 '''
 # code for generating a random monster name and description
 # replace x,y with range of monster in list.
