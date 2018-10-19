@@ -167,6 +167,15 @@ def execute_equip(item_id):
                                 inventory.append(equipped['weapon'])
                                 equipped['weapon'] = items[item_id]
                                 inventory.remove(items[item_id])
+                                
+                        elif items[item_id]['type'] == 'armour':
+                            if equipped['armour'] is None:
+                                equipped['armour'] = items[item_id]
+                                inventory.remove(items[item_id])
+                            else:
+                                inventory.append(equipped['armour'])
+                                equipped['armour'] = items[item_id]
+                                inventory.remove(items[item_id])
                     
                 
                 
