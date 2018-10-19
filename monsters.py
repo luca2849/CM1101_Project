@@ -26,8 +26,8 @@ They’ve munched their way through protein, smashed their way through sit ups a
 man_made_mermaid = monster('Man-Made Mermaid', '', 2, ['Trident'])
 half_a_giraffe = monster('Half a Giraffe', '', 2, ['Giraffe Drumstick'])
 #Tier 3 Monsters
-big_horn_unicorn = monster ('Big Horn Unicorn', '', 3, ['Unicorn Spear'])
-deceased_priest = monster('Deceased Priest', '', 3, ['Holy Hand Grenade'])
+big_horn_unicorn = monster ('Big Horn Unicorn', 'This bad boy has an absolute unit of a horn on his head. That’s it. His horn is just an absolute machine.', 3, ['Unicorn Spear'])
+deceased_priest = monster('Deceased Priest', 'He’s just a zombie but dressed as a priest. No one really knows how he got the outfit, he was a plumber before he died.', 3, ['Holy Hand Grenade'])
 one_tonne_skeleton = monster('One Tonne Skeleton', 'A big skeleton', 3, ['Bone Saw'])
 #Tier 4 Monsters
 tyrannosaurus_mex = monster('Tyrannosaurus Mex', 'A spicy mexican dinosaur', 4, ['Maracas'])
