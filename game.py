@@ -134,7 +134,8 @@ def execute_observe(item_id):
                 if item == item_id_name:
                     print("----------------------------------")
                     print()
-                    print(item_id_name['name'])
+                    if item_id_name['type'] == 'weapon':
+                        print(item_id_name['name'], "(+", item_id_name['power'], "Attack)")
                     print(item_id_name['description'], '\n')
                     
 
@@ -158,7 +159,7 @@ def execute_equip(item_id):
             for item in inventory:
                 if item == items[item_id]:
                     if items[item_id]['equippable'] == True:
-                        if items[item_id]['weapon'] == True:
+                        if items[item_id]['type'] == 'weapon':
                             if equipped['weapon'] is None:
                                 equipped['weapon'] = items[item_id]
                                 inventory.remove(items[item_id])
