@@ -1,6 +1,6 @@
 #python 3 monsters.py
-#import random
-#from time import sleep
+import random
+from time import sleep
 
 class monster:
     '''Class for adding monsters
@@ -21,7 +21,8 @@ zombeez = monster('Zombeez', 'Swarm of Zombeez', 1, ['Bee Stingers'])
 computer_on_a_scooter = monster('Computer on a Scooter', '', 1, ['DDOS Attack Script'])
 tequila_sheila = monster('Tequila Shelia', '', 1, ['Broken Bottle'])
 #Tier 2 Monsters
-crabs_with_abs = monster('Crabs with Abs', '', 2, ['Workout Routine'])
+crabs_with_abs = monster('Crabs with Abs', '''These bad boys have been hitting the gym over the summer. They’ve bulked up big time.
+They’ve munched their way through protein, smashed their way through sit ups and injected a metric tonne of steroids.''', 2, ['Workout Routine'])
 man_made_mermaid = monster('Man-Made Mermaid', '', 2, ['Trident'])
 half_a_giraffe = monster('Half a Giraffe', '', 2, ['Giraffe Drumstick'])
 #Tier 3 Monsters
@@ -41,6 +42,7 @@ kirill_riding_a_bear = monster('Kirill Riding a bear', '', 10, ['Trophy for Winn
 monster_list = [zombeez, computer_on_a_scooter, tequila_sheila, crabs_with_abs, man_made_mermaid,half_a_giraffe, big_horn_unicorn, deceased_priest, one_tonne_skeleton, tyrannosaurus_mex, dragon_in_a_wagon, geiger_tiger]
 
 boss_list = [kirill_riding_a_bear] # init list of bosses
+
 
 
 '''
