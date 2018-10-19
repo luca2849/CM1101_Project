@@ -5,15 +5,164 @@ from gameparser import *
 from player import *
 from map import *
 from mapfun import ascii_map
+from random_action import *
+
+#battle
+def room_event(room):
+    if room['monster'] is not None:
+        battle(room['monster'])
+        if death == True:
+            return
+        
+        
+def print_battle(monster_gen):  
+    print("----------------------------------")
+    print()
+    print("A monster blocks your way.\n")
+    print(monster_list[monster_gen].name, '\n')
+    print(monster_list[monster_gen].description, '\n')
+    
+
+def display_monster_hp(monster_hp, full_monster_hp):
+    health = monster_hp
+    max_health = full_monster_hp  
+    health_dashes = 20
+    
+    dash_convert = max_health/health_dashes
+    current_dashes = int(health/dash_convert)
+    remaining_health = health_dashes - current_dashes
+    
+    health_display = ''.join(['-' for i in range(current_dashes)])
+    remaining_display = ''.join([' ' for i in range(remaining_health)])
+    print("HP: ""|" + health_display + remaining_display + "|", health, "/", max_health)
 
 
+def display_player_hp(player_hp, full_player_hp):
+    health = player_hp
+    max_health = full_player_hp
+    health_dashes = 20
+    
+    dash_convert = max_health/health_dashes
+    current_dashes = int(health/dash_convert)
+    remaining_health = health_dashes - current_dashes
+    
+    health_display = ''.join(['-' for i in range(current_dashes)])
+    remaining_display = ''.join([' ' for i in range(remaining_health)])
+    print("HP: ""|" + health_display + remaining_display + "|", health, "/", max_health)
+    
+
+def print_battle_menu():
+    print("You can:")
+    print("ATTACK to attack monster")
+    
+
+def is_battle(monster_hp):
+    if monster_hp > 0:
+        return True
+    
+    
+def battle_seq(monster_gen, monster_hp, full_monster_hp):
+    global exp
+    global player_hp
+    global max_player_hp
+    global death
+    
+    
+    while is_battle(monster_hp):
+        if monster_hp > 0:
+            print("----------------------------------")
+            print()
+            print(monster_list[monster_gen].name)
+            display_monster_hp(monster_hp, full_monster_hp)
+            print("You:")
+            display_player_hp(player_hp, max_player_hp)
+            print()
+            print_battle_menu()
+            print()
+            print("----------------------------------")
+            
+            player_input = input(">>")
+            normalised_player_input = normalise_input(player_input)
+            
+            if 0 == len(normalised_player_input):
+                 continue
+
+            if normalised_player_input[0] == "attack":
+                player_atk = random_atk(player_level, equipped['weapon'])
+                monster_hp -= player_atk
+                print("You deal", player_atk, "damage.")
+                if monster_hp > 0:
+                    monster_atk = random_monster_atk(monster_gen)
+                    player_hp -= monster_atk
+                    print(monster_list[monster_gen].name,"deals", monster_atk, "to you.")
+                    if player_hp <= 0:
+                        death = True
+                        return
+            else:
+                print("Do what?\n")
+    exp_gain = int(random.uniform(monster_list[monster_gen].tier * 3, monster_list[monster_gen].tier * 5))
+    exp += exp_gain
+    print()
+    print("You defeated", monster_list[monster_gen].name)
+    print("You gain", exp_gain, "exp.")
+    print()
+    print_if_level_up()
+    after_battle(monster_gen)
+    
+
+def after_battle(monster_gen):
+    global dropped_items
+    for item in monster_list[monster_gen].drops:
+        drop = item
+    dropped_items.append(drop)
+    print("----------------------------------")
+    print()
+    print(monster_list[monster_gen].name, 'dropped', drop['name'])
+    print()
+    
+
+
+def print_if_level_up():
+    global exp
+    global player_level
+    
+    if exp >= max_exp:
+        print("LEVEL UP    (hp +10, max hp +20, attack +3)")
+        
+        
+def battle(monster_number):
+    x = 0
+    y = 1
+    if monster_number == 1:
+        x = 0
+        y = 4
+    elif monster_number == 2:
+        x = 4
+        y = 8
+    elif monster_number == 3:
+        x = 8
+        y = 12
+        
+    monster_gen = random_monster(x,y)
+    print_battle(monster_gen)
+    monster_hp = random_stats(monster_gen)
+    full_monster_hp = monster_hp
+    battle_seq(monster_gen,monster_hp,full_monster_hp)
+    if death == True:
+        return
+
+
+#others  
+def game_over():
+    print()
+    
 def is_empty(any_structure):
     if any_structure:
         return False
     else:
         return True
     
-    
+ #room and menu   
 def print_room(room):         #print room name and description
     print()
     print(room["name"].upper())
@@ -29,28 +178,26 @@ def print_inventory_items(items):         #print player's inventory
         print("Your inventory is empty.")
         print()
     else:
+        item_list = []
         for item in items:
-            print("----------------------------------")
-            print()
-            print("You have " + item['name'] + ".\n")
+            item_list.append(item['name'])
+        item_str = ', '.join(item_list)
+        print("----------------------------------")
+        print()
+        print("You have " + item_str + ".\n")
             
             
 def print_equip_items(items):         #print player's inventory
+    print('Equipments:')
     if items['weapon'] is None:
         print("Weapon: ")
     else:
-        print('Weapon: ' + items['weapon']['name'])
+        print('Weapon: ' + items['weapon']['name'] + '(+',items['weapon']['power'] * 3,'atk)')
     
     if items['armour'] is None:
         print ("Armour: ")
     else:
         print('Armour: ', items['armour']['name'])
-    
-    if is_empty(items['others']):
-        print("Others:")
-    else:
-        for item in items['others']:
-            print('Others: ', item['name'], '/n')
         
 def print_exit(direction, leads_to):
     print("GO " + direction.upper() + " to " + leads_to + ".")
@@ -60,7 +207,7 @@ def exit_leads_to(exits, direction):
     return rooms[exits[direction]]["name"]
     
     
-def print_menu(exits, inv_items, equip_item):         #print list of commands
+def print_menu(exits, inv_items, equip_item, dropped_items):         #print list of commands
     print()
     print("You can:")
     for direction in exits:
@@ -75,6 +222,11 @@ def print_menu(exits, inv_items, equip_item):         #print list of commands
         items_id = item['id']
         items_name = item['name']
         print("EQUIP " + items_id.upper() + " to equip " + items_name + ".")
+        
+    for item in dropped_items:
+        items_id = item['id']
+        items_name = item['name']
+        print("OBTAIN " + items_id.upper() + " to equip " + items_name + ".")
     print("VIEW MAP to look at the map")
     print("What do you want to do?")
     
@@ -85,7 +237,7 @@ def menu(exits, inv_items):         #calls print_menu() and normalises input()
         if item['equippable'] == True:
             equip_items.append(item)
             
-    print_menu(exits, inv_items, equip_items)
+    print_menu(exits, inv_items, equip_items, dropped_items)
     print()
     print("----------------------------------")
     user_input = input(">>")
@@ -110,6 +262,9 @@ def execute_go(direction):
         ###move_sound()
         print("----------------------------------")
         print_room(current_room)
+        room_event(current_room)
+        if death == True:
+            return
         
     else:
         print("----------------------------------")
@@ -177,7 +332,27 @@ def execute_equip(item_id):
                                 equipped['armour'] = items[item_id]
                                 inventory.remove(items[item_id])
                     
-                
+                 
+def execute_obtain(item_id):
+    global inventory
+    global dropped_items
+    if item_id not in items:
+        print("----------------------------------")
+        print()
+        print("You cannot obtain that.\n")
+        
+    else:
+        item_id_name = items[item_id]
+        if item_id_name not in dropped_items:
+            print("You cannot obtain that\n.")
+            return
+        
+        else:
+            for item in dropped_items:
+                if item == items[item_id]:
+                    inventory.append(items[item_id])
+                    dropped_items.remove(items[item_id])
+
                 
 def execute_command(command, room):
     if 0 == len(command):
@@ -186,6 +361,8 @@ def execute_command(command, room):
     if command[0] == "go":
         if len(command) > 1:
             execute_go(command[1])
+            if death == True:
+                return
         else:
             print("----------------------------------")
             print()
@@ -213,7 +390,7 @@ def execute_command(command, room):
             print("What?\n")
             print("----------------------------------")
     
-    elif command[0] == "equip":
+    elif command[0] == 'equip':
         if len(command) > 1:
             execute_equip(command[1])
         else:
@@ -221,14 +398,57 @@ def execute_command(command, room):
             print()
             print("Equip What?\n")
             print("----------------------------------")
+    
+    elif command[0] == 'obtain':
+        if len(command) > 1:
+            execute_obtain(command[1])
+        else:
+            print("----------------------------------")
+            print()
+            print("Obtain what?\n")
+            print("----------------------------------")
+            
     else:
         print("You are speaking nonsense.\n")
         
         
+def display_exp(exp, max_exp):
+    dashes = 20
+    
+    dash_convert = max_exp/dashes
+    current_dashes = int(exp/dash_convert)
+    remaining_exp = dashes - current_dashes
+    
+    exp_display = ''.join(['-' for i in range(current_dashes)])
+    remaining_display = ''.join([' ' for i in range(remaining_exp)])
+    print("EXP: ""|" + exp_display + remaining_display + "|", exp, "/", max_exp)        
+        
+    
+def level_up():
+    global exp
+    global player_level
+    global player_hp
+    global max_player_hp
+    global max_exp
+    
+    while exp >= max_exp:
+        max_exp = player_level * 10
+        exp -= max_exp
+        player_level += 1
+        player_hp += 10
+        max_player_hp += 20
+        level_up()
+        max_exp = player_level * 10
         
         
-        
-
+def game_over():
+    print("----------------------------------")
+    print()
+    print("Gameover \nYou lose")
+    game_over_sound()
+    input("Press enter button to continue.")
+    
+    
 def main():
     play_sound()
     print(
@@ -243,13 +463,24 @@ def main():
     print("----------------------------------")
     print_room(current_room)
     while True:
+        level_up()
+        
         print_inventory_items(inventory)
         
         print_equip_items(equipped)
+        print()
+        print("Player:")
+        display_player_hp(player_hp, max_player_hp)
+        print("Your level:", player_level)
+        display_exp(exp, max_exp)
         
         command = menu(current_room["exits"], inventory)
         
         execute_command(command, current_room)
+        
+        if death == True:
+            game_over()
+            break
 
 if __name__ == "__main__":
     main()

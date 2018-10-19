@@ -1,6 +1,7 @@
 #python 3 monsters.py
-import random
-from time import sleep
+#import random
+#from time import sleep
+from items import *
 
 class monster:
     '''Class for adding monsters
@@ -17,24 +18,23 @@ class monster:
 # =============
 
 #Tier 1 Monsters
-zombeez = monster('Zombeez', 'Swarm of Zombeez', 1, ['Bee Stingers'])
-computer_on_a_scooter = monster('Computer on a Scooter', '', 1, ['DDOS Attack Script'])
-tequila_sheila = monster('Tequila Shelia', '', 1, ['Broken Bottle'])
-#Tier 2 Monsters
+zombeez = monster('Zombeez', 'Swarm of Zombeez', 1, [bee_stingers])
+computer_on_a_scooter = monster('Computer on a Scooter', '', 1, [ddos_attack_script])
+tequila_sheila = monster('Tequila Shelia', '', 1, [broken_bottle])
 crabs_with_abs = monster('Crabs with Abs', '''These bad boys have been hitting the gym over the summer. They’ve bulked up big time.
-They’ve munched their way through protein, smashed their way through sit ups and injected a metric tonne of steroids.''', 2, ['Workout Routine'])
-man_made_mermaid = monster('Man-Made Mermaid', '', 2, ['Trident'])
-half_a_giraffe = monster('Half a Giraffe', '', 2, ['Giraffe Drumstick'])
+They’ve munched their way through protein, smashed their way through sit ups and injected a metric tonne of steroids.''', 1, [workout_routine])
+#Tier 2 Monsters
+man_made_mermaid = monster('Man-Made Mermaid', '', 2, [trident])
+half_a_giraffe = monster('Half a Giraffe', '', 2, [giraffe_drumstick])
+big_horn_unicorn = monster ('Big Horn Unicorn', '', 2, [unicorn_spear])
+deceased_priest = monster('Deceased Priest', '', 2, [holy_hand_gernade])
 #Tier 3 Monsters
-big_horn_unicorn = monster ('Big Horn Unicorn', '', 3, ['Unicorn Spear'])
-deceased_priest = monster('Deceased Priest', '', 3, ['Holy Hand Grenade'])
-one_tonne_skeleton = monster('One Tonne Skeleton', 'A big skeleton', 3, ['Bone Saw'])
-#Tier 4 Monsters
-tyrannosaurus_mex = monster('Tyrannosaurus Mex', 'A spicy mexican dinosaur', 4, ['Maracas'])
-dragon_in_a_wagon = monster('Dragon in a Wagon', '', 4, ['Dragons Breath Spell'])
-geiger_tiger = monster('Geiger Tiger', '', 4, ['Nuclear Claws'])
+one_tonne_skeleton = monster('One Tonne Skeleton', 'A big skeleton', 3, [bone_saw])
+tyrannosaurus_mex = monster('Tyrannosaurus Mex', 'A spicy mexican dinosaur', 3, [maracas])
+dragon_in_a_wagon = monster('Dragon in a Wagon', '', 3, [dragons_breath_spell])
+geiger_tiger = monster('Geiger Tiger', '', 3, [nuclear_claws])
 #Bosses
-kirill_riding_a_bear = monster('Kirill Riding a bear', '', 10, ['Trophy for Winning the Game'])
+kirill_riding_a_bear = monster('Kirill Riding a bear', '', 10, [trophy_for_winning_the_game])
 
 
 
@@ -42,8 +42,6 @@ kirill_riding_a_bear = monster('Kirill Riding a bear', '', 10, ['Trophy for Winn
 monster_list = [zombeez, computer_on_a_scooter, tequila_sheila, crabs_with_abs, man_made_mermaid,half_a_giraffe, big_horn_unicorn, deceased_priest, one_tonne_skeleton, tyrannosaurus_mex, dragon_in_a_wagon, geiger_tiger]
 
 boss_list = [kirill_riding_a_bear] # init list of bosses
-
-
 
 '''
 # code for generating a random monster name and description

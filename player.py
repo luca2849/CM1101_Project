@@ -10,3 +10,11 @@ equipped = {'weapon' : None,
             'armour' : None,
             'others' : []
 }
+
+player_hp = 20
+max_player_hp = 20
+player_level = 1
+exp = 0
+max_exp = player_level * 10
+
+death = False
