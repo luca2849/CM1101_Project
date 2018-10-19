@@ -121,26 +121,14 @@ def execute_observe(item_id):
     if item_id not in items:
         print("----------------------------------")
         print()
-<<<<<<< HEAD
         print("You are dissapointed not to find that in your inventory.\n")
-    
-=======
-        print("You are disappointed not to find that in your inventory.\n")
-        print("----------------------------------")
->>>>>>> 18f98c91fd938f880d1bd7722f15cd3c1b629061
     else:
         item_id_name = items[item_id]
         if item_id_name not in inventory:
             print("----------------------------------")
             print()
-<<<<<<< HEAD
             print("You are dissapointed not to find that in your inventory.\n")
-=======
-            print("You are disappointed not to find that in your inventory.\n")
-            print("----------------------------------")
-            return
         
->>>>>>> 18f98c91fd938f880d1bd7722f15cd3c1b629061
         else:
             for item in inventory:
                 if item == item_id_name:

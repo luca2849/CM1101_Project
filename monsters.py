@@ -33,7 +33,7 @@ tyrannosaurus_mex = monster('Tyrannosaurus Mex', 'A spicy mexican dinosaur', 4, 
 dragon_in_a_wagon = monster('Dragon in a Wagon', '', 4, ['Dragons Breath Spell'])
 geiger_tiger = monster('Geiger Tiger', '', 4, ['Nuclear Claws'])
 #Bosses
-kirill_riding_a_bear = monster('Kirill Riding a bear', '', ['Trophy for Winning the Game'])
+kirill_riding_a_bear = monster('Kirill Riding a bear', '', 10, ['Trophy for Winning the Game'])
 
 
 
