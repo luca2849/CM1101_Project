@@ -25,3 +25,12 @@ def random_monster_atk(monster_gen):
     atk = int(random.uniform(2 + 3 * tier, 5 + 3 * tier))
     return atk
 
+def random_boss_atk(boss):
+    tier = boss.tier
+    atk = int(random.uniform(2 + 3 * tier, 5 + 3 * tier))
+    return atk
+
+def random_drop(monster_gen):
+    y = len(monster_list[monster_gen].drops)
+    rng = int(random.uniform(0,y))
+    return rng
