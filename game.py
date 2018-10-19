@@ -11,8 +11,10 @@ from random_action import *
 def room_event(room):
     if room['monster'] is not None:
         battle(room['monster'])
-        if death == True:
-            return
+    elif room['boss'] is not None:
+        battle_boss(room['boss'])
+    if death == True:
+        return
         
         
 def print_battle(monster_gen):  
@@ -21,6 +23,14 @@ def print_battle(monster_gen):
     print("A monster blocks your way.\n")
     print(monster_list[monster_gen].name, '\n')
     print(monster_list[monster_gen].description, '\n')
+
+
+def print_boss_battle(boss):
+    print("----------------------------------")
+    print()
+    print("The boss appears in front of you.\n")
+    print(boss.name, '\n')
+    print(boss.description, '\n')
     
 
 def display_monster_hp(monster_hp, full_monster_hp):
@@ -112,8 +122,8 @@ def battle_seq(monster_gen, monster_hp, full_monster_hp):
 
 def after_battle(monster_gen):
     global dropped_items
-    for item in monster_list[monster_gen].drops:
-        drop = item
+    item = random_drop(monster_gen)
+    drop = monster_list[monster_gen].drops[item]
     dropped_items.append(drop)
     print("----------------------------------")
     print()
@@ -121,7 +131,18 @@ def after_battle(monster_gen):
     print()
     
 
-
+def after_battle_boss(boss):
+    global dropped_items
+    for item in boss.drops:
+        drop = item
+        print(drop)
+    dropped_items.append(drop)
+    print("----------------------------------")
+    print()
+    print(boss.name, 'dropped', drop['name'])
+    print()
+    
+    
 def print_if_level_up():
     global exp
     global player_level
@@ -129,7 +150,63 @@ def print_if_level_up():
     if exp >= max_exp:
         print("LEVEL UP    (hp +10, max hp +20, attack +3)")
         
-        
+    
+def boss_battle_seq(boss, boss_hp, max_boss_hp):
+    global exp
+    global player_hp
+    global max_player_hp
+    global death
+    
+    
+    while is_battle(boss_hp):
+        if boss_hp > 0:
+            print("----------------------------------")
+            print()
+            print(boss.name)
+            display_monster_hp(boss_hp, max_boss_hp)
+            print("You:")
+            display_player_hp(player_hp, max_player_hp)
+            print()
+            print_battle_menu()
+            print()
+            print("----------------------------------")
+            
+            player_input = input(">>")
+            normalised_player_input = normalise_input(player_input)
+            
+            if 0 == len(normalised_player_input):
+                 continue
+
+            if normalised_player_input[0] == "attack":
+                player_atk = random_atk(player_level, equipped['weapon'])
+                boss_hp -= player_atk
+                print("You deal", player_atk, "damage.")
+                if boss_hp > 0:
+                    boss_atk = random_boss_atk(boss)
+                    player_hp -= boss_atk
+                    print(boss.name,"deals", boss_atk, "to you.")
+                    if player_hp <= 0:
+                        death = True
+                        return
+            else:
+                print("Do what?\n")
+                
+    exp_gain = int(random.uniform(boss.tier * 3, boss.tier * 5))
+    exp += exp_gain
+    print()
+    print("You defeated", boss.name)
+    print("You gain", exp_gain, "exp.")
+    print()
+    print_if_level_up()
+    after_battle_boss(boss)
+    
+    
+def battle_boss(boss):
+    print_boss_battle(boss)
+    boss_battle_seq(boss, boss_hp, max_boss_hp)
+    if death == True:
+        return
+    
 def battle(monster_number):
     x = 0
     y = 1
@@ -147,7 +224,7 @@ def battle(monster_number):
     print_battle(monster_gen)
     monster_hp = random_stats(monster_gen)
     full_monster_hp = monster_hp
-    battle_seq(monster_gen,monster_hp,full_monster_hp)
+    battle_seq(monster_gen, monster_hp, full_monster_hp)
     if death == True:
         return
 
@@ -257,14 +334,16 @@ def move(exits, direction):
 
 def execute_go(direction):
     global current_room
+    global dropped_items
     if is_valid_exit(current_room["exits"], direction) == True:
         current_room = move(current_room["exits"], direction)
+        dropped_items = []
         ###move_sound()
         print("----------------------------------")
         print_room(current_room)
         room_event(current_room)
-        if death == True:
-            return
+    if death == True:
+        return
         
     else:
         print("----------------------------------")
@@ -446,7 +525,7 @@ def game_over():
     print()
     print("Gameover \nYou lose")
     game_over_sound()
-    input("Press enter button to continue.")
+    input("Press ENTER to continue.")
     
     
 def main():
@@ -463,6 +542,14 @@ def main():
     print("----------------------------------")
     print_room(current_room)
     while True:
+        for item in inventory:
+            if item == trophy_for_winning_the_game:
+                print("----------------------------------")
+                print()
+                print("You defeated the game!")
+                input("Press ENTER to continue.")
+                return
+            
         level_up()
         
         print_inventory_items(inventory)
