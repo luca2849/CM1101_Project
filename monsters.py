@@ -2,54 +2,47 @@
 #import random
 #from time import sleep
 
-
 class monster:
     '''Class for adding monsters
        monster_id = monster('monster name', 'description', [drops])
        '''
-    def __init__(self, name, description, drops):
+    def __init__(self, name, description, tier, drops):
         self.name = name
         self.description = description
+        self.tier = tier
         self.drops = drops
 
-#monsters        
-tyrannosaurus_mex = monster('Tyrannosaurus Mex', 'A spicy mexican dinosaur', ['Maracas'])
-dragon_in_a_wagon = monster('Dragon in a Wagon', '', ['Dragons Breath Spell'])
-one_tonne_skeleton = monster('One Tonne Skeleton', 'A big skeleton', ['Bone Saw'])
-zombeez = monster('Zombeez', 'Swarm of Zombeez', ['Bee Stingers'])
-crabs_with_abs = monster('Crabs with Abs', '',['Workout Routine'])
-big_horn_unicorn = monster ('Big Horn Unicorn', '', ['Unicorn Spear'])
-half_a_giraffe = monster('Half a Giraffe', '', ['Giraffe Drumstick'])
-geiger_tiger = monster('Geiger Tiger', '', ['Nuclear Claws'])
-computer_on_a_scooter = monster('Computer on a Scooter', '', ['DDOS Attack Script'])
-deceased_priest = monster('Deceased Priest', '', ['Holy Water'])
-tequila_sheila = monster('Tequila Shelia', '', ['Broken Bottle'])
-man_made_mermaid = monster('Man-Made Mermaid', '', ['Trident'])
-#bosses
+# =============        
+#   monsters
+# =============
+
+#Tier 1 Monsters
+zombeez = monster('Zombeez', 'Swarm of Zombeez', 1, ['Bee Stingers'])
+computer_on_a_scooter = monster('Computer on a Scooter', '', 1, ['DDOS Attack Script'])
+tequila_sheila = monster('Tequila Shelia', '', 1, ['Broken Bottle'])
+#Tier 2 Monsters
+crabs_with_abs = monster('Crabs with Abs', '', 2, ['Workout Routine'])
+man_made_mermaid = monster('Man-Made Mermaid', '', 2, ['Trident'])
+half_a_giraffe = monster('Half a Giraffe', '', 2, ['Giraffe Drumstick'])
+#Tier 3 Monsters
+big_horn_unicorn = monster ('Big Horn Unicorn', '', 3, ['Unicorn Spear'])
+deceased_priest = monster('Deceased Priest', '', 3, ['Holy Hand Grenade'])
+one_tonne_skeleton = monster('One Tonne Skeleton', 'A big skeleton', 3, ['Bone Saw'])
+#Tier 4 Monsters
+tyrannosaurus_mex = monster('Tyrannosaurus Mex', 'A spicy mexican dinosaur', 4, ['Maracas'])
+dragon_in_a_wagon = monster('Dragon in a Wagon', '', 4, ['Dragons Breath Spell'])
+geiger_tiger = monster('Geiger Tiger', '', 4, ['Nuclear Claws'])
+#Bosses
 kirill_riding_a_bear = monster('Kirill Riding a bear', '', ['Trophy for Winning the Game'])
 
 
 
 
-monster_list = []
-
-monster_list.append(zombeez)
-monster_list.append(crabs_with_abs)
-monster_list.append(one_tonne_skeleton)
-monster_list.append(half_a_giraffe)
-monster_list.append(geiger_tiger)
-monster_list.append(tequila_sheila)
-monster_list.append(computer_on_a_scooter)
-monster_list.append(deceased_priest)
-monster_list.append(man_made_mermaid)
-monster_list.append(big_horn_unicorn)
-monster_list.append(tyrannosaurus_mex)
-monster_list.append(dragon_in_a_wagon)
+monster_list = [zombeez, crabs_with_abs, one_tonne_skeleton, half_a_giraffe, geiger_tiger, tequila_sheila, computer_on_a_scooter, deceased_priest, man_made_mermaid, big_horn_unicorn, tyrannosaurus_mex, dragon_in_a_wagon] #init list of monsters
 
 
-boss_list = []
+boss_list = [kirill_riding_a_bear] # init list of bosses
 
-boss_list.append(kirill_riding_a_bear)
 
 '''
 # code for generating a random monster name and description
