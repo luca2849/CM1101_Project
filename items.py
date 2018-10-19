@@ -73,7 +73,7 @@ broken_bottle = {'name' : 'Broken Bottle',
                  'id' : 'bottle',
                  'equippable' : True,
                  'description' : """ """,
-                 'power' : '1'
+                 'power' : 1
 }
 
 trident = {'name' : 'Trident',
@@ -94,7 +94,7 @@ stick = {'name' : 'Stick',
          'id' : 'stick',
          'equippable' : True,
          'description' : """""",
-         'weapon' : True,
+         'type' : 'weapon',
          'power' : 0
 }
 
