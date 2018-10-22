@@ -34,7 +34,7 @@ tyrannosaurus_mex = monster('Tyrannosaurus Mex', 'A spicy mexican dinosaur', 3, 
 dragon_in_a_wagon = monster('Dragon in a Wagon', '', 3, [dragons_breath_spell])
 geiger_tiger = monster('Geiger Tiger', '', 3, [nuclear_claws])
 #Bosses
-kirill_riding_a_bear = monster('Kirill Riding a bear', '', 10, [trophy_for_winning_the_game])
+kirill_riding_a_bear = monster('Kirill Riding a bear', '', 7, [trophy_for_winning_the_game])
 
 
 
@@ -42,6 +42,9 @@ kirill_riding_a_bear = monster('Kirill Riding a bear', '', 10, [trophy_for_winni
 monster_list = [zombeez, computer_on_a_scooter, tequila_sheila, crabs_with_abs, man_made_mermaid,half_a_giraffe, big_horn_unicorn, deceased_priest, one_tonne_skeleton, tyrannosaurus_mex, dragon_in_a_wagon, geiger_tiger]
 
 boss_list = [kirill_riding_a_bear] # init list of bosses
+
+boss_hp = 300
+max_boss_hp = 300
 
 '''
 # code for generating a random monster name and description
