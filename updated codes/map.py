@@ -1,76 +1,95 @@
 #python3 map.py
 from monsters import *
+from items import *
 
 r1 = {'name' : 'room 1',
       'position' : 'position1',
-      'description' :""" """,
+      'description' :"""There's a potion in the room.""",
       'exits' : {'north' : 'rm5'},
       'monster' : 1,
-      'boss' : None
+      'boss' : None,
+      'item' : potion,
+      'trap' : False
 }
 
 r2 = {'name' : 'room 2',
       'position' : 'position2',
-      'description' :""" """,
+      'description' :"""There's a potion in the room.""",
       'exits' : {'north' : 'rm6', 'east' : 'rm3', 'west' : 'rm1'},
       'monster' : 1,
-      'boss' : None
+      'boss' : None,
+      'item' : potion,
+      'trap' : False
 }
 
 r3 = {'name' : 'room 3',
       'position' : 'position3',
-      'description' :""" """,
-      'exits' : {'west': 'rm2'},
+      'description' :"""It's a trap! The floor drops beneath you.""",
+      'exits' : {},
       'monster' : None,
-      'boss' : None
+      'boss' : None,
+      'item' : None,
+      'trap' : True
 }
 
 r4 = {'name' : 'room 4',
       'position' : 'position4',
-      'description' :""" """,
+      'description' :"""No monsters in this room, you see something shining in the corner.""",
       'exits' : {'east': 'rm5'},
       'monster' : None,
-      'boss' : None
+      'boss' : None,
+      'item' : key,
+      'trap' : False
 }
 
 r5 = {'name' : 'room 5',
       'position' : 'position5',
-      'description' :""" """,
-      'exits' : {'north' : 'rm7'},
+      'description' :"""There's a potion in the room.""",
+      'exits' : {'north' : 'rm7', 'west' : 'rm4'},
       'monster' : 2,
-      'boss' : None
+      'boss' : None,
+      'item' : potion,
+      'trap' : False
 }
 
 r6 = {'name' : 'room 6',
       'position' : 'position6',
-      'description' :""" """,
+      'description' :"""There's a potion in the room.""",
       'exits' : {'north' : 'rm8'},
       'monster' : 2,
-      'boss' : None
+      'boss' : None,
+      'item' : potion,
+      'trap' : False
 }
 
 r7 = {'name' : 'room 7',
       'position' : 'position7',
-      'description' :""" """,
-      'exits' : {'north' : 'bossrm', 'east' : 'rm8'},
+      'description' :"""There's a potion in the room.""",
+      'exits' : {'north' : 'bossrm', 'east' : 'rm8', 'south' : 'rm5'},
       'monster' : 3,
-      'boss' : None
+      'boss' : None,
+      'item' : potion,
+      'trap' : False
 }
 
 r8 = {'name' : 'room 8',
       'position' : 'position8',
-      'description' :""" """,
+      'description' :"""There's a potion in the room.""",
       'exits' : {'east' : 'rm9', 'west' : 'rm7'},
       'monster' : 3,
-      'boss' : None
+      'boss' : None,
+      'item' : potion,
+      'trap' : False
 }
 
 r9 = {'name' : 'room 9',
       'position' : 'position9',
-      'description' :""" """,
-      'exits' : {'west': 'rm8'},
+      'description' :"""It's a trap! The walls slowly close in.""",
+      'exits' : {},
       'monster' : None,
-      'boss' : None
+      'boss' : None,
+      'item' : None,
+      'trap' : True
 }
 
 boss = {'name' : 'boss room',
@@ -78,7 +97,9 @@ boss = {'name' : 'boss room',
       'description' :""" """,
       'exits' : {},
       'monster' : None,
-      'boss' : kirill_riding_a_bear
+      'boss' : kirill_riding_a_bear,
+      'item' : None,
+      'trap' : False
 }
 
 start = {'name' : 'start',
@@ -86,7 +107,8 @@ start = {'name' : 'start',
       'description' :""" """,
       'exits' : {'north' : 'rm2'},
       'monster' : None,
-      'boss' : None
+      'boss' : None,
+      'item' : None
 }
 
 rooms = {'rm1' : r1,

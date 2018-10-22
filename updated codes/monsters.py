@@ -25,12 +25,12 @@ tequila_sheila = monster('Tequila Shelia', '', 1, [broken_bottle])
 crabs_with_abs = monster('Crabs with Abs', '''These bad boys have been hitting the gym over the summer. They’ve bulked up big time.
 They’ve munched their way through protein, smashed their way through sit ups and injected a metric tonne of steroids.''', 1, [workout_routine])
 #Tier 2 Monsters
-man_made_mermaid = monster('Man-Made Mermaid', '''  Created in a lab off-shore far far away.
-Following her escape she took refuge within this dungeon and swears to protect it from any intruders at all costs. ''', 2, [trident])
+man_made_mermaid = monster('Man-Made Mermaid', '''Created in a lab off-shore far far away.
+Following her escape she took refuge within this dungeon and swears to protect it from any intruders at all costs.''', 2, [trident])
 half_a_giraffe = monster('Half a Giraffe', '''He’s yellow, brown and not tall at all. He’s a half the size of a normal giraffe but it’s the size of his heart that matters.
 He was outcast by his tribe and then found peace with his height when he was taken in by a tribe of similarly sized big horn unicorns.''', 2, [giraffe_drumstick])
 big_horn_unicorn = monster ('Big Horn Unicorn', 'This bad boy has an absolute unit of a horn on his head. That’s it. His horn is just an absolute machine.', 2, [unicorn_spear])
-deceased_priest = monster('Deceased Priest', 'He’s just a zombie but dressed as a priest. No one really knows how he got the outfit, he was a plumber before he died.', 2, [holy_hand_grenade])
+deceased_priest = monster('Deceased Priest', 'He’s just a zombie but dressed as a priest. No one really knows how he got the outfit, he was a plumber before he died.', 2, [holy_hand_gernade])
 #Tier 3 Monsters
 one_tonne_skeleton = monster('One Tonne Skeleton', 'A big skeleton', 3, [bone_saw])
 tyrannosaurus_mex = monster('Tyrannosaurus Mex', '''A spicy Mexican dinosaur rocking a fiery sombrero, wielding some deadly maracas and busting some sick dance moves.
@@ -50,11 +50,8 @@ boss_list = [kirill_riding_a_bear] # init list of bosses
 
 boss_hp = 300
 max_boss_hp = 300
+boss_hp_check = True
 
-<<<<<<< HEAD
-=======
-
->>>>>>> 8c4fff4533d2cf94816ffe14cc290d2446a2f2d0
 '''
 # code for generating a random monster name and description
 # replace x,y with range of monster in list.

@@ -100,11 +100,13 @@ def battle_seq(monster_gen, monster_hp, full_monster_hp):
             if normalised_player_input[0] == "attack":
                 player_atk = random_atk(player_level, equipped['weapon'])
                 monster_hp -= player_atk
+                print("----------------------------------")
+                print()
                 print("You deal", player_atk, "damage.")
                 if monster_hp > 0:
                     monster_atk = random_monster_atk(monster_gen)
                     player_hp -= monster_atk
-                    print(monster_list[monster_gen].name,"deals", monster_atk, "to you.")
+                    print(monster_list[monster_gen].name,"deals", monster_atk, "to you.\n")
                     if player_hp <= 0:
                         death = True
                         return
@@ -124,12 +126,26 @@ def after_battle(monster_gen):
     global dropped_items
     item = random_drop(monster_gen)
     drop = monster_list[monster_gen].drops[item]
+<<<<<<< HEAD
+=======
     dropped_items.append(drop)
-    print("----------------------------------")
-    print()
     print(monster_list[monster_gen].name, 'dropped', drop['name'])
     print()
     
+
+def after_battle_boss(boss):
+    global dropped_items
+    for item in boss.drops:
+        drop = item
+        print(drop)
+>>>>>>> 8c4fff4533d2cf94816ffe14cc290d2446a2f2d0
+    dropped_items.append(drop)
+    print("----------------------------------")
+    print()
+    print(boss.name, 'dropped', drop['name'])
+    print()
+    
+<<<<<<< HEAD
 
 def after_battle_boss(boss):
     global dropped_items
@@ -142,6 +158,8 @@ def after_battle_boss(boss):
     print(boss.name, 'dropped', drop['name'])
     print()
     
+=======
+>>>>>>> 8c4fff4533d2cf94816ffe14cc290d2446a2f2d0
     
 def print_if_level_up():
     global exp
@@ -342,13 +360,19 @@ def execute_go(direction):
         print("----------------------------------")
         print_room(current_room)
         room_event(current_room)
+<<<<<<< HEAD
     if death == True:
         return
+=======
+>>>>>>> 8c4fff4533d2cf94816ffe14cc290d2446a2f2d0
         
     else:
         print("----------------------------------")
         print()
         print("You walked into a wall.\n")
+
+    if death == True:
+        return
         
         
 def execute_observe(item_id):
@@ -369,7 +393,7 @@ def execute_observe(item_id):
                     print("----------------------------------")
                     print()
                     if item_id_name['type'] == 'weapon':
-                        print(item_id_name['name'], "(+", item_id_name['power'], "Attack)")
+                        print(item_id_name['name'], "(+", item_id_name['power']*3, "Attack)")
                     print(item_id_name['description'], '\n')
                     
 
@@ -386,7 +410,7 @@ def execute_equip(item_id):
     else:
         item_id_name = items[item_id]
         if item_id_name not in inventory:
-            print("You cannot equip that\n.")
+            print("You cannot equip that.\n")
             return
         
         else:
@@ -397,19 +421,31 @@ def execute_equip(item_id):
                             if equipped['weapon'] is None:
                                 equipped['weapon'] = items[item_id]
                                 inventory.remove(items[item_id])
+                                print("----------------------------------")
+                                print()
+                                print("You equipped " + items[item_id]['name'] +'.')
                             else:
                                 inventory.append(equipped['weapon'])
                                 equipped['weapon'] = items[item_id]
                                 inventory.remove(items[item_id])
+                                print("----------------------------------")
+                                print()
+                                print("You equipped" + items[item_id]['name'] +'.')
                                 
                         elif items[item_id]['type'] == 'armour':
                             if equipped['armour'] is None:
                                 equipped['armour'] = items[item_id]
                                 inventory.remove(items[item_id])
+                                print("----------------------------------")
+                                print()
+                                print("You equipped" + items[item_id]['name'] +'.')
                             else:
                                 inventory.append(equipped['armour'])
                                 equipped['armour'] = items[item_id]
                                 inventory.remove(items[item_id])
+                                print("----------------------------------")
+                                print()
+                                print("You equipped" + items[item_id]['name'] +'.')
                     
                  
 def execute_obtain(item_id):
@@ -423,7 +459,9 @@ def execute_obtain(item_id):
     else:
         item_id_name = items[item_id]
         if item_id_name not in dropped_items:
-            print("You cannot obtain that\n.")
+            print("----------------------------------")
+            print()
+            print("You cannot obtain that.\n")
             return
         
         else:

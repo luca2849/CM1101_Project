@@ -30,11 +30,12 @@ def random_boss_atk(boss):
     atk = int(random.uniform(2 + 3 * tier, 5 + 3 * tier))
     return atk
 
+def random_boss_atk2(boss):
+    tier = boss.tier
+    atk = int(random.uniform(3 + 4 * tier, 6 + 4 * tier))
+    return atk
+
 def random_drop(monster_gen):
     y = len(monster_list[monster_gen].drops)
     rng = int(random.uniform(0,y))
-<<<<<<< HEAD
     return rng
-=======
-    return rng
->>>>>>> 8c4fff4533d2cf94816ffe14cc290d2446a2f2d0
