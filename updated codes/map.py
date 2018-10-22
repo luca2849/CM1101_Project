@@ -84,11 +84,11 @@ r8 = {'name' : 'room 8',
 
 r9 = {'name' : 'room 9',
       'position' : 'position9',
-      'description' :"""""",
-      'exits' : {'west', 'rm8'},
-      'monster' : None,
+      'description' :"""There's a potion in the room.""",
+      'exits' : {'west': 'rm8'},
+      'monster' : 3,
       'boss' : None,
-      'item' : None,
+      'item' : potion,
       'trap' : False
 }
 
