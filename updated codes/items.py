@@ -115,6 +115,7 @@ key = {'name' : 'Key',
        'id' : 'key',
        'equippable' : False,
        'description' : """""",
+       'type' : 'item',
        'power' : 0
 }
 

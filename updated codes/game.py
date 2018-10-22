@@ -476,6 +476,8 @@ def execute_observe(item_id):
                     print()
                     if item_id_name['type'] == 'weapon':
                         print(item_id_name['name'], "(+", item_id_name['power'] * 3, "Attack)")
+                    else:
+                        print(item_id_name['name'])
                     print(item_id_name['description'], '\n')
                     
 

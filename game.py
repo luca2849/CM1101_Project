@@ -9,15 +9,15 @@ from random_action import *
 
 #battle
 def room_event(room):
-    if room['monster'] is not None:
+    if room['monster'] is not None:         #runs battle against monster if monster is in room
         battle(room['monster'])
-    elif room['boss'] is not None:
+    elif room['boss'] is not None:         #runs battle against boss if boss is in room
         battle_boss(room['boss'])
     if death == True:
         return
         
         
-def print_battle(monster_gen):  
+def print_battle(monster_gen):         #prints name and description of monster
     print("----------------------------------")
     print()
     print("A monster blocks your way.\n")
@@ -25,7 +25,7 @@ def print_battle(monster_gen):
     print(monster_list[monster_gen].description, '\n')
 
 
-def print_boss_battle(boss):
+def print_boss_battle(boss):         #prints name and description of boss
     print("----------------------------------")
     print()
     print("The boss appears in front of you.\n")
@@ -33,7 +33,7 @@ def print_boss_battle(boss):
     print(boss.description, '\n')
     
 
-def display_monster_hp(monster_hp, full_monster_hp):
+def display_monster_hp(monster_hp, full_monster_hp):         #displays monster's hp value
     health = monster_hp
     max_health = full_monster_hp  
     health_dashes = 20
@@ -47,7 +47,7 @@ def display_monster_hp(monster_hp, full_monster_hp):
     print("HP: ""|" + health_display + remaining_display + "|", health, "/", max_health)
 
 
-def display_player_hp(player_hp, full_player_hp):
+def display_player_hp(player_hp, full_player_hp):         #displays player's hp value
     health = player_hp
     max_health = full_player_hp
     health_dashes = 20
@@ -61,17 +61,17 @@ def display_player_hp(player_hp, full_player_hp):
     print("HP: ""|" + health_display + remaining_display + "|", health, "/", max_health)
     
 
-def print_battle_menu():
+def print_battle_menu():         #displays what player can do
     print("You can:")
     print("ATTACK to attack monster")
     
 
-def is_battle(monster_hp):
+def is_battle(monster_hp):         #check if battle is still ongoing
     if monster_hp > 0:
         return True
     
     
-def battle_seq(monster_gen, monster_hp, full_monster_hp):
+def battle_seq(monster_gen, monster_hp, full_monster_hp):         #main battle sequence for monster battle
     global exp
     global player_hp
     global max_player_hp
@@ -79,7 +79,7 @@ def battle_seq(monster_gen, monster_hp, full_monster_hp):
     
     
     while is_battle(monster_hp):
-        if monster_hp > 0:
+        if monster_hp > 0:         #prints battle sequence menus
             print("----------------------------------")
             print()
             print(monster_list[monster_gen].name)
@@ -97,7 +97,7 @@ def battle_seq(monster_gen, monster_hp, full_monster_hp):
             if 0 == len(normalised_player_input):
                  continue
 
-            if normalised_player_input[0] == "attack":
+            if normalised_player_input[0] == "attack":         #set's attack values of player and monster and updates information
                 player_atk = random_atk(player_level, equipped['weapon'])
                 monster_hp -= player_atk
                 print("----------------------------------")
@@ -107,7 +107,7 @@ def battle_seq(monster_gen, monster_hp, full_monster_hp):
                     monster_atk = random_monster_atk(monster_gen)
                     player_hp -= monster_atk
                     print(monster_list[monster_gen].name,"deals", monster_atk, "to you.\n")
-                    if player_hp <= 0:
+                    if player_hp <= 0:         #return death
                         death = True
                         return
             else:
@@ -122,46 +122,28 @@ def battle_seq(monster_gen, monster_hp, full_monster_hp):
     after_battle(monster_gen)
     
 
-def after_battle(monster_gen):
+def after_battle(monster_gen):         #drops item for monster
     global dropped_items
     item = random_drop(monster_gen)
     drop = monster_list[monster_gen].drops[item]
-<<<<<<< HEAD
-=======
     dropped_items.append(drop)
     print(monster_list[monster_gen].name, 'dropped', drop['name'])
     print()
     
 
-def after_battle_boss(boss):
+def after_battle_boss(boss):         #drops item for boss
     global dropped_items
     for item in boss.drops:
         drop = item
         print(drop)
->>>>>>> 8c4fff4533d2cf94816ffe14cc290d2446a2f2d0
     dropped_items.append(drop)
     print("----------------------------------")
     print()
     print(boss.name, 'dropped', drop['name'])
     print()
-    
-<<<<<<< HEAD
 
-def after_battle_boss(boss):
-    global dropped_items
-    for item in boss.drops:
-        drop = item
-        print(drop)
-    dropped_items.append(drop)
-    print("----------------------------------")
-    print()
-    print(boss.name, 'dropped', drop['name'])
-    print()
     
-=======
->>>>>>> 8c4fff4533d2cf94816ffe14cc290d2446a2f2d0
-    
-def print_if_level_up():
+def print_if_level_up():         #prints level up if leveled up
     global exp
     global player_level
     
@@ -169,14 +151,14 @@ def print_if_level_up():
         print("LEVEL UP    (hp +10, max hp +20, attack +3)")
         
     
-def boss_battle_seq(boss, boss_hp, max_boss_hp):
+def boss_battle_seq(boss, boss_hp, max_boss_hp):         #main battle sequence for boss
     global exp
     global player_hp
     global max_player_hp
     global death
     
     
-    while is_battle(boss_hp):
+    while is_battle(boss_hp):         #displays battle menu for boss battle
         if boss_hp > 0:
             print("----------------------------------")
             print()
@@ -203,7 +185,7 @@ def boss_battle_seq(boss, boss_hp, max_boss_hp):
                     boss_atk = random_boss_atk(boss)
                     player_hp -= boss_atk
                     print(boss.name,"deals", boss_atk, "to you.")
-                    if player_hp <= 0:
+                    if player_hp <= 0:         #return death
                         death = True
                         return
             else:
@@ -360,11 +342,8 @@ def execute_go(direction):
         print("----------------------------------")
         print_room(current_room)
         room_event(current_room)
-<<<<<<< HEAD
     if death == True:
         return
-=======
->>>>>>> 8c4fff4533d2cf94816ffe14cc290d2446a2f2d0
         
     else:
         print("----------------------------------")
@@ -394,6 +373,8 @@ def execute_observe(item_id):
                     print()
                     if item_id_name['type'] == 'weapon':
                         print(item_id_name['name'], "(+", item_id_name['power']*3, "Attack)")
+                    else:
+                        print(item_id_name['name'])
                     print(item_id_name['description'], '\n')
                     
 
