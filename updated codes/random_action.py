@@ -11,12 +11,12 @@ def random_stats(monster_gen):
     HP = int(random.uniform(5 + 5 * tier, 10 + 5 * tier))
     return HP
 
-def random_atk(player_level, equip):
+def random_atk(player_level, equip_weapon):
     power = 0
-    if equip is None:
+    if equip_weapon is None:
         power = 0
     else:
-        power = equip['power']
+        power = equip_weapon['power']
     atk = int(random.uniform(2 + (player_level + power) * 3, 5 + (player_level + power) * 3))
     return atk
 
