@@ -50,7 +50,6 @@ boss_list = [kirill_riding_a_bear] # init list of bosses
 
 boss_hp = 150
 max_boss_hp = 150
-boss_hp_check = True
 
 '''
 # code for generating a random monster name and description

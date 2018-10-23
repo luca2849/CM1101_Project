@@ -9,25 +9,9 @@ from random_action import *
 from items import *
 from settings import *
 from load_screen import load_screen
+import os
 
-#battle
-def boss_hp_check(hoss_hp, max_boss_hp):
-    if boss_hp <= max_boss_hp / 5:
-        return True
-    else:
-        return False
-            
-    
-def print_aggro_check(boss_hp, max_boss_hp):
-    global boss_hp_check
-    if boss_hp_check == True:
-        if boss_hp <= max_boss_hp / 5:
-            boss_hp_check = False
-            return True
-        else:
-            return False
-
-        
+#battle 
 def room_event(room):
     if room['monster'] is not None:
         battle(room['monster'])
@@ -117,6 +101,7 @@ def battle_seq(monster_gen, monster_hp, full_monster_hp):
             
             player_input = input(">>")
             normalised_player_input = normalise_input(player_input)
+            os.system('cls')
             
             if 0 == len(normalised_player_input):
                  continue
@@ -154,6 +139,8 @@ def battle_seq(monster_gen, monster_hp, full_monster_hp):
     print()
     print_if_level_up()
     after_battle(monster_gen)
+    print("-----------------------------------------------")
+    print_room(current_room)
     
 
 def after_battle(monster_gen):
@@ -169,7 +156,6 @@ def after_battle_boss(boss):
     global dropped_items
     for item in boss.drops:
         drop = item
-        print(drop)
     dropped_items.append(drop)
     print(boss.name, 'dropped', drop['name'])
     print()
@@ -194,10 +180,7 @@ def boss_battle_seq(boss, boss_hp, max_boss_hp):
         if boss_hp > 0:
             print("-----------------------------------------------")
             print()
-            if boss_hp_check(boss_hp, max_boss_hp) == False:
-                print(boss.name)
-            else:
-                print(boss.name + '(Aggressive)')
+            print(boss.name)
             display_monster_hp(boss_hp, max_boss_hp)
             print("You:")
             display_player_hp(player_hp, max_player_hp)
@@ -208,6 +191,7 @@ def boss_battle_seq(boss, boss_hp, max_boss_hp):
             
             player_input = input(">>")
             normalised_player_input = normalise_input(player_input)
+            os.system('cls')
             
             if 0 == len(normalised_player_input):
                  continue
@@ -217,15 +201,9 @@ def boss_battle_seq(boss, boss_hp, max_boss_hp):
                 boss_hp -= player_atk
                 print("You deal", player_atk, "damage.")
                 if boss_hp > 0:
-                    if boss_hp_check(boss_hp, max_boss_hp) == False:
-                        boss_atk = random_boss_atk(boss)
-                    else:
-                        boss_atk = random_boss_atk2(boss)
+                    boss_atk = random_boss_atk(boss)
                     player_hp -= boss_atk
                     print(boss.name,"deals", boss_atk, "to you.")
-                    if print_aggro_check(boss_hp, max_boss_hp) == True:
-                        print()
-                        print("The boss is now aggressive.")
                     if player_hp <= 0:
                         death = True
                         return
@@ -250,6 +228,8 @@ def boss_battle_seq(boss, boss_hp, max_boss_hp):
     print()
     print_if_level_up()
     after_battle_boss(boss)
+    print("-----------------------------------------------")
+    print_room(current_room)
     
     
 def battle_boss(boss):
@@ -300,11 +280,12 @@ def print_room(room):         #print room name and description
 
 
 def print_inventory_items(items):         #print player's inventory
-    if is_empty(inventory):
-        print("-----------------------------------------------")
-        print()
-        print("Your inventory is empty.")
-        print()
+    if potion['amount'] <= 0:
+        if is_empty(inventory):
+            print("-----------------------------------------------")
+            print()
+            print("Your inventory is empty.")
+            print()
     else:
         item_list = []
         for item in items:
@@ -324,11 +305,6 @@ def print_equip_items(items):         #print player's inventory
         print("Weapon: ")
     else:
         print('Weapon: ' + items['weapon']['name'] + '(+',items['weapon']['power'] * 3,'atk)')
-    
-    if items['armour'] is None:
-        print ("Armour: ")
-    else:
-        print('Armour: ', items['armour']['name'])
         
 def print_exit(direction, leads_to):
     print("GO " + direction.upper() + " to " + leads_to + ".")
@@ -396,6 +372,8 @@ def menu(exits, inv_items):         #calls print_menu() and normalises input()
 
     normalised_user_input = normalise_input(user_input)
 
+    os.system('cls')
+
     return normalised_user_input
 
 
@@ -436,8 +414,6 @@ def execute_go(direction):
             if current_room['item'] == potion:
                 dropped_items.append(current_room['item'])
         ###move_sound()
-        print("-----------------------------------------------")
-        print_room(current_room)
         room_event(current_room)
         if current_room['trap'] == True:
             death = True
@@ -512,14 +488,6 @@ def execute_equip(item_id):
                                 equipped['weapon'] = items[item_id]
                                 inventory.remove(items[item_id])
                                 
-                        elif items[item_id]['type'] == 'armour':
-                            if equipped['armour'] is None:
-                                equipped['armour'] = items[item_id]
-                                inventory.remove(items[item_id])
-                            else:
-                                inventory.append(equipped['armour'])
-                                equipped['armour'] = items[item_id]
-                                inventory.remove(items[item_id])
                     
                  
 def execute_obtain(item_id):
@@ -535,13 +503,14 @@ def execute_obtain(item_id):
     else:
         item_id_name = items[item_id]
         if item_id_name not in dropped_items:
+            print("-----------------------------------------------")
+            print()
             print("You cannot obtain that.\n")
             return
         elif item_id_name == potion:
             for item in dropped_items:
                 if item == items[item_id]:
                     potion['amount'] += 1
-                    print(potion['amount'])
                     dropped_items.remove(items[item_id])
         else:
             for item in dropped_items:
@@ -563,7 +532,7 @@ def execute_drop(item_id):
         if item_id_name not in inventory:
             print("-----------------------------------------------")
             print()
-            print("You cannot drop that\n.")
+            print("You cannot drop that.\n")
             return
         
         else:
@@ -678,6 +647,8 @@ def execute_command(command, room):
         settings()
             
     else:
+        print("-----------------------------------------------")
+        print()
         print("You are speaking nonsense.\n")
         
         
@@ -877,12 +848,15 @@ def settings_action(command):
     
     elif command[0] == "quit":
         setting = False
+        os.system('cls')
 
     
 def settings():
     global setting
     
     setting = True
+
+    os.system('cls')
     
     while setting == True:
         print_setting_menu()
@@ -892,6 +866,8 @@ def settings():
         normalised_user_input = normalise_input(user_input)
 
         settings_action(normalised_user_input)
+
+        os.system('cls')
         
         
         
