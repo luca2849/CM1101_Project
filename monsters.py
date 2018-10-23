@@ -41,9 +41,10 @@ tyrannosaurus_mex = monster('Tyrannosaurus Mex', '''A spicy Mexican dinosaur roc
 Good luck with this big bad boy, you're going to need it.''', 3, [maracas])
 dragon_in_a_wagon = monster('Dragon in a Wagon', '''Don't underestimate this fiery little boy, he may not look like much with his little red wagon but he can really put up a fight.
 None of the dragons back at home could put up a decent fight, so now he seeks some worthy opponents.''', 3, [dragons_breath_spell])
-geiger_tiger = monster('Geiger Tiger', '', 3, [nuclear_claws])
+geiger_tiger = monster('Geiger Tiger', '''Chris used to work in a nuclear power plant before the day of the disaster. He just about survived the blast before the severe radiation
+transformed him into the Geiger Tiger.''', 3, [nuclear_claws])
 #Bosses
-kirill_riding_a_bear = monster('Kirill Riding a bear', '', 7, [trophy_for_winning_the_game])
+kirill_riding_a_bear = monster('Kirill Riding a bear', '''Overlord of the Dungeon, overseer of our first module, also a certified absolute legend. He's all that stands in your way now. Finish him.''', 7, [trophy_for_winning_the_game])
 
 
 
