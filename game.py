@@ -151,7 +151,7 @@ def after_battle(monster_gen):
         append_item = False
     elif equipped['weapon'] is None:
         append_item = True
-    elif drop in equipped['weapon']:
+    elif drop == equipped['weapon']:
         append_item = False
     if append_item == True:
         dropped_items.append(drop)
@@ -206,11 +206,14 @@ def boss_battle_seq(boss, boss_hp, max_boss_hp):
             if normalised_player_input[0] == "attack":
                 player_atk = random_atk(player_level, equipped['weapon'])
                 boss_hp -= player_atk
+                print("-----------------------------------------------")
+                print()
                 print("You deal", player_atk, "damage.")
                 if boss_hp > 0:
                     boss_atk = random_boss_atk(boss)
                     player_hp -= boss_atk
                     print(boss.name,"deals", boss_atk, "to you.")
+                    print()
                     if player_hp <= 0:
                         death = True
                         return
