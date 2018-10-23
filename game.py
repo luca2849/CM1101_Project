@@ -585,17 +585,10 @@ def execute_use(item_id): # Function to letthe player use potions to heal
         else:
             print("You don't have any potions left.")
                     
-                
-
-                    
             
-<<<<<<< HEAD
 def execute_command(command, room): # Function to process general commands and route them to their functions
-    if 0 == len(command):
-=======
-def execute_command(command, room):
     if len(command) == 0:
->>>>>>> d390105f766f72eff4752e6cb7058c71fe3ee443
+
         return
 
     if command[0] == "go":
@@ -930,12 +923,7 @@ def choose_class(): # Function to get the players class choice
             is_choose_class = False    
         
         
-<<<<<<< HEAD
 def main(): # Function for the main game loop
-    play_sound()
-=======
-def main():
->>>>>>> d390105f766f72eff4752e6cb7058c71fe3ee443
     print(
  """    ____                                        ______                    __         
    / __ \__  ______  ____ ____  ____  ____     / ____/________ __      __/ /__  _____
