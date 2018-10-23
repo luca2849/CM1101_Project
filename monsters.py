@@ -223,5 +223,5 @@ while True:
     sleep(1)
 '''
 
-for i in range (12):
-  print(monster_list[i].ascii_art)
+'''for i in range (12):
+  print(monster_list[i].ascii_art)'''

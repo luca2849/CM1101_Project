@@ -880,7 +880,62 @@ def settings():
         settings_action(normalised_user_input)
 
         os.system('cls')
-        
+
+
+def print_class_menu():
+    print("-----------------------------------------------")
+    print("Choose a class:")
+    print("ALCHEMIST: Start with 3 potions.")
+    print("WARRIOR: Start at level 2.")
+    print("MAGE: Start with 5 exp and 2 potions.")
+    print("-----------------------------------------------")
+    
+    
+def class_action(command):
+    global potion
+    global exp
+    global is_choose_class
+    global class_choice
+
+    if 0 == len(command):
+        return
+            
+    elif command[0] == 'alchemist':
+        potion['amount'] = 3
+        class_choice = 'Alchemist'
+
+    elif command[0] == 'warrior':
+        exp += 10
+        class_choice = 'Warrior'
+
+    elif command[0] == 'mage':
+        exp += 5
+        potion['amount'] = 2
+        class_choice = 'Mage'
+    
+    else:
+        return
+
+    
+def choose_class():
+    global choose_class
+    
+    is_choose_class = True
+    
+    while is_choose_class == True:
+        print_class_menu()
+    
+        user_input = input(">>")
+
+        normalised_user_input = normalise_input(user_input)
+
+        class_action(normalised_user_input)
+
+        os.system('cls')
+
+        if class_choice != '':
+            is_choose_class = False
+
         
         
         
@@ -898,8 +953,13 @@ def main():
                   /____/                                                             """)
     input("Press ENTER to continue.")
     load_screen()
+    is_choose_class = False
+    choose_class()
     print("-----------------------------------------------")
     print_room(current_room)
+    level_up()
+    global player_hp
+    player_hp = int(max_player_hp)
     while True:
         #music settings
         if music == True:
@@ -924,7 +984,7 @@ def main():
         
         print_equip_items(equipped)
         print()
-        print("Player:")
+        print("Player:", '('+class_choice+')')
         display_player_hp(player_hp, max_player_hp)
         print("Your level:", player_level)
         display_exp(exp, max_exp)
