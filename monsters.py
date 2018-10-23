@@ -27,7 +27,15 @@ tequila_sheila = monster('Tequila Shelia', '''After a rough few months going thr
 tequila. It was the only thing that gave her love anymore. She is high key an alcoholic
 and should probably go see someone but instead she’s stuck in a dungeon''', 1, [broken_bottle], '''''')
 crabs_with_abs = monster('Crabs with Abs', '''These bad boys have been hitting the gym over the summer. They’ve bulked up big time.
-They’ve munched their way through protein, smashed their way through sit ups and injected a metric tonne of steroids.''', 1, [workout_routine], '''''')
+They’ve munched their way through protein, smashed their way through sit ups and injected a metric tonne of steroids.''', 1, [workout_routine], '''
+     /\
+    ( /   @ @    ()
+     \\ __| |__  /
+      \/   "   \/
+     /-|   ()  |-\
+    / /-\  () /-\ \
+     / /-`---'-\ \
+      /         \  ''')
 
 #Tier 2 Monsters
 man_made_mermaid = monster('Man-Made Mermaid', '''Created in a lab off-shore far far away.
