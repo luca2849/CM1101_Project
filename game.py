@@ -787,7 +787,6 @@ def settings_action(command):
             music = False
         else:
             music = True
-[
             
     elif command[0] == "attack":
         if show_attack:
@@ -865,7 +864,7 @@ def print_class_menu():
 def class_action(command):
     global potion
     global exp
-[[    global is_choose_class
+    global is_choose_class
     global class_choice
 
     if 0 == len(command):
