@@ -140,15 +140,22 @@ def battle_seq(monster_gen, monster_hp, full_monster_hp):
     print_if_level_up()
     after_battle(monster_gen)
     print("-----------------------------------------------")
-    print_room(current_room)
     
 
 def after_battle(monster_gen):
     global dropped_items
+    append_item = True
     item = random_drop(monster_gen)
     drop = monster_list[monster_gen].drops[item]
-    dropped_items.append(drop)
-    print(monster_list[monster_gen].name, 'dropped', drop['name'])
+    if drop in inventory:
+        append_item = False
+    elif equipped['weapon'] is None:
+        append_item = True
+    elif drop in equipped['weapon']:
+        append_item = False
+    if append_item == True:
+        dropped_items.append(drop)
+        print(monster_list[monster_gen].name, 'dropped', drop['name'])
     print()
     
 
@@ -229,7 +236,7 @@ def boss_battle_seq(boss, boss_hp, max_boss_hp):
     print_if_level_up()
     after_battle_boss(boss)
     print("-----------------------------------------------")
-    print_room(current_room)
+
     
     
 def battle_boss(boss):
@@ -415,6 +422,7 @@ def execute_go(direction):
                 dropped_items.append(current_room['item'])
         ###move_sound()
         room_event(current_room)
+        print_room(current_room)
         if current_room['trap'] == True:
             death = True
             return

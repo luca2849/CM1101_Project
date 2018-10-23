@@ -33,3 +33,4 @@ def load_screen():
     print("Just kidding. (◦ ’ 3 ˉ ◦)")
     sleep(1.5)
     os.system('cls')
+    sleep(0.1)
