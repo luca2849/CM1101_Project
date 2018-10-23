@@ -77,7 +77,7 @@ boss_list = [kirill_riding_a_bear] # init list of bosses
 boss_hp = 150
 max_boss_hp = 150
 
-print(tyrannosaurus_mex.ascii_art)
+
 '''
 # code for generating a random monster name and description
 # replace x,y with range of monster in list.
