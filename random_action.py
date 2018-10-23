@@ -11,12 +11,12 @@ def random_stats(monster_gen):
     HP = int(random.uniform(5 + 5 * tier, 10 + 5 * tier))
     return HP
 
-def random_atk(player_level, equip):
+def random_atk(player_level, equip_weapon):
     power = 0
-    if equip is None:
+    if equip_weapon is None:
         power = 0
     else:
-        power = equip['power']
+        power = equip_weapon['power']
     atk = int(random.uniform(2 + (player_level + power) * 3, 5 + (player_level + power) * 3))
     return atk
 
@@ -30,11 +30,12 @@ def random_boss_atk(boss):
     atk = int(random.uniform(2 + 3 * tier, 5 + 3 * tier))
     return atk
 
+def random_boss_atk2(boss):
+    tier = boss.tier
+    atk = int(random.uniform(3 + 4 * tier, 6 + 4 * tier))
+    return atk
+
 def random_drop(monster_gen):
     y = len(monster_list[monster_gen].drops)
     rng = int(random.uniform(0,y))
-<<<<<<< HEAD
     return rng
-=======
-    return rng
->>>>>>> 8c4fff4533d2cf94816ffe14cc290d2446a2f2d0

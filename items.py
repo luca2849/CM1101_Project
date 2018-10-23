@@ -71,8 +71,8 @@ ddos_attack_script = {'name' : 'DDOS Attack Script',
                       'power' : 1
 }
 
-holy_hand_grenade = {'name' : 'Holy Hater Grenade',
-                     'id' : 'grenade',
+holy_hand_gernade = {'name' : 'Holy Hater Gernade',
+                     'id' : 'gernade',
                      'equippable' : True,
                      'description' : """ """,
                      'type' : 'weapon',
@@ -111,7 +111,21 @@ stick = {'name' : 'Stick',
          'power' : 0
 }
 
+key = {'name' : 'Key',
+       'id' : 'key',
+       'equippable' : False,
+       'description' : """""",
+       'type' : 'item',
+       'power' : 0
+}
 
+potion = {'name' : 'Potion',
+       'id' : 'potion',
+       'equippable' : False,
+       'description' : """Restores 25% of health""",
+       'power' : 0,
+       'amount' : 1
+}
 
 
 items = {'maracas' : maracas,
@@ -123,9 +137,11 @@ items = {'maracas' : maracas,
          'drumstick' : giraffe_drumstick,
          'claws' : nuclear_claws,
          'script' : ddos_attack_script,
-         'grenade' : holy_hand_grenade,
+         'gernade' : holy_hand_gernade,
          'bottle' : broken_bottle,
          'trident' : trident,
          'trophy' : trophy_for_winning_the_game,
-         'stick' : stick
+         'stick' : stick,
+         'key' : key,
+         'potion' : potion
 }

@@ -6,10 +6,10 @@ current_room = start
 
 inventory = [stick]
 
-equipped = {'weapon' : None,
-            'armour' : None,
-            'others' : []
+equipped = {'weapon' : None
 }
+
+inventory_heal = [potion]
 
 player_hp = 20
 max_player_hp = 20
