@@ -52,7 +52,7 @@ They’ve munched their way through protein, smashed their way through sit ups a
               /*(   (*   (/      ..       ,.  .*/    /*   //  ., (             
                (/    /.   .                         //    //  .*(*             
                                                     ,    (/   ,.#              
-                                                              (.  ''')
+                                                              (.   ''')
 #Tier 2 Monsters
 man_made_mermaid = monster('Man-Made Mermaid', '''Created in a lab off-shore far far away.
 Following her escape she took refuge within this dungeon and swears to protect it from any intruders at all costs.''', 2, [trident], '''''')
@@ -84,38 +84,47 @@ deceased_priest = monster('Deceased Priest', 'He’s just a zombie but dressed a
 #Tier 3 Monsters
 one_tonne_skeleton = monster('One Tonne Skeleton', '''This absolute unit of a skeleton used to belong to World's Strongest Man Eddie Hall.
 He's retired now so he doesn't need it, now it's your problem.''', 3, [bone_saw], '''
-          .7
-            .'/
-           / /
-          / /
-         / /
-        / /
-       / /
-      / /
-     / /         
-    / /          
-  __|/
-,-\__\
-|f-"Y\|
-\()7L/
- cgD                            __ _
- |\(                          .'  Y '>,
-  \ \                        / _   _   \
-   \\\                       )(_) (_)(|}
-    \\\                      {  4A   } /
-     \\\                      \uLuJJ/\l
-      \\\                     |3    p)/
-       \\\___ __________      /nnm_n//
-       c7___-__,__-)\,__)(".  \_>-<_/D
-                  //V     \_"-._.__G G_c__.-__<"/ ( \
-                         <"-._>__-,G_.___)\   \7\
-                        ("-.__.| \"<.__.-" )   \ \
-                        |"-.__"\  |"-.__.-".\   \ \
-                        ("-.__"". \"-.__.-".|    \_\
-                        \"-.__""|!|"-.__.-".)     \ \
-                         "-.__""\_|"-.__.-"./      \ l
-                          ".__""">G>-.__.-">       .--,_
-                              ""  G ''')
+                            _.--""-._
+  .                         ."         ".
+ / \    ,^.         /(     Y             |      )\
+/   `---. |--'\    (  \__..'--   -   -- -'""-.-'  )
+|        :|    `>   '.     l_..-------.._l      .'
+|      __l;__ .'      "-.__.||_.-'v'-._||`"----"
+ \  .-' | |  `              l._       _.'
+  \/    | |                   l`^^'^^'j
+        | |                _   \_____/     _
+        j |               l `--__)-'(__.--' |
+        | |               | /`---``-----'"1 |  ,-----.
+        | |               )/  `--' '---'   \'-'  ___  `-.
+        | |              //  `-'  '`----'  /  ,-'   I`.  \
+      _ L |_            //  `-.-.'`-----' /  /  |   |  `. \
+     '._' / \         _/(   `/   )- ---' ;  /__.J   L.__.\ :
+      `._;/7(-.......'  /        ) (     |  |            | |
+      `._;l _'--------_/        )-'/     :  |___.    _._./ ;
+        | |                 .__ )-'\  __  \  \  I   1   / /
+        `-'                /   `-\-(-'   \ \  `.|   | ,' /
+                           \__  `-'    __/  `-. `---'',-'
+                              )-._.-- (        `-----'
+                             )(  l\ o ('..-.
+                       _..--' _'-' '--'.-. |
+                __,,-'' _,,-''            \ \
+               f'. _,,-'                   \ \
+              ()--  |                       \ \
+                \.  |                       /  \
+                  \ \                      |._  |
+                   \ \                     |  ()|
+                    \ \                     \  /
+                     ) `-.                   | |
+                    // .__)                  | |
+                 _.//7'                      | |
+               '---'                         j_| `
+                                            (| |
+                                             |  \
+                                             |lllj
+                                             |||||
+
+
+''')
 tyrannosaurus_mex = monster('Tyrannosaurus Mex', '''A spicy Mexican dinosaur rocking a fiery sombrero, wielding some deadly maracas and busting some sick dance moves.
 Good luck with this big bad boy, you're going to need it.''', 3, [maracas], '''____
        ___                                      .-~. /_"-._
@@ -162,7 +171,8 @@ _'    `\   _/=== \___/
         _`--  \/  === \/--'
        |       \ ==== |
         -`------/`--' /
-                \___-''')
+                \___-
+''')
 #Bosses
 kirill_riding_a_bear = monster('Kirill Riding a bear', '''Overlord of the Dungeon, overseer of our first module, also a certified absolute legend. He's all that stands in your way now. Finish him.''', 7, [trophy_for_winning_the_game], '''''')
 

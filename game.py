@@ -26,6 +26,7 @@ def print_battle(monster_gen):
     print()
     print("A monster blocks your way.\n")
     print(monster_list[monster_gen].name, '\n')
+    print(monster_list[monster_gen].ascii_art, '\n')
     print(monster_list[monster_gen].description, '\n')
 
 
