@@ -17,7 +17,7 @@ def room_event(room): # Function for deciding what happens when you enter a room
         battle(room['monster'])
     elif room['boss'] is not None:
         battle_boss(room['boss'])
-    if death == True:
+    if death:
         return
         
         
@@ -68,9 +68,9 @@ def display_player_hp(player_hp, full_player_hp): # Function for displaying play
 
 def print_battle_menu(): # Function to print all of the options available to the player
     print("You can:")
-    if show_attack == True:
+    if show_attack:
         print("ATTACK to attack monster")
-    if show_potions == True:
+    if show_potions:
         if potion['amount'] > 0:
             print("USE POTION to use potion")
     
@@ -154,7 +154,7 @@ def after_battle(monster_gen): # Function for the after-battle sequence
         append_item = True
     elif drop == equipped['weapon']:
         append_item = False
-    if append_item == True:
+    if append_item:
         dropped_items.append(drop)
         print(monster_list[monster_gen].name, 'dropped', drop['name'])
     print()
@@ -246,7 +246,7 @@ def boss_battle_seq(boss, boss_hp, max_boss_hp): # Function to print the boss ba
 def battle_boss(boss): # Function to start the boss battle
     print_boss_battle(boss)
     boss_battle_seq(boss, boss_hp, max_boss_hp)
-    if death == True:
+    if death:
         return
     
 def battle(monster_number): # Function to decided what monster to spawn dependent on the room and tier
@@ -267,7 +267,7 @@ def battle(monster_number): # Function to decided what monster to spawn dependen
     monster_hp = random_stats(monster_gen)
     full_monster_hp = monster_hp
     battle_seq(monster_gen, monster_hp, full_monster_hp)
-    if death == True:
+    if death:
         return
 
 
@@ -331,39 +331,39 @@ def print_menu(exits, inv_items, equip_item, dropped_items):         #print list
     for direction in exits:
         print_exit(direction, exit_leads_to(exits, direction))
     
-    if show_potions == True:
+    if show_potions:
         if potion['amount'] > 0:
             print("USE POTION to use potion")
         
-    if show_observe == True:
+    if show_observe:
         for item in inv_items:
             items_id = item['id']
             items_name = item['name']
             print("OBSERVE " + items_id.upper() + " to look at your " + items_name + ".")
     
-    if show_observe == True:
+    if show_observe:
         if potion['amount'] > 0:
             print("OBSERVE POTION to look at your potion.")
     
-    if show_equip == True:
+    if show_equip:
         for item in equip_item:
             items_id = item['id']
             items_name = item['name']
             print("EQUIP " + items_id.upper() + " to equip " + items_name + ".")
         
-    if show_obtain == True:
+    if show_obtain:
         for item in dropped_items:
             items_id = item['id']
             items_name = item['name']
             print("OBTAIN " + items_id.upper() + " to obtain " + items_name + ".")
      
-    if show_drop == True:
+    if show_drop:
         for item in inv_items:
             items_id = item['id']
             items_name = item['name']
             print("DROP " + items_id.upper() + " to drop " + items_name + ".")
     
-    if show_map == True:
+    if show_map:
         print("VIEW MAP to look at the map")
     
     print("SETTINGS to change settings")
@@ -373,7 +373,7 @@ def print_menu(exits, inv_items, equip_item, dropped_items):         #print list
 def menu(exits, inv_items):         #calls print_menu() and normalises input()
     equip_items = []
     for item in inv_items:
-        if item['equippable'] == True:
+        if item['equippable']:
             equip_items.append(item)
             
     print_menu(exits, inv_items, equip_items, dropped_items)
@@ -408,9 +408,9 @@ def execute_go(direction): # Function to move the player
     global dropped_items
     global death
     
-    if is_valid_exit(current_room["exits"], direction) == True:
+    if is_valid_exit(current_room["exits"], direction):
         if move(current_room["exits"], direction) == boss:
-            if check_key() == True:
+            if check_key():
                 current_room = move(current_room["exits"], direction)
             else:
                 print("The gate is locked, you require a key.")
@@ -427,7 +427,7 @@ def execute_go(direction): # Function to move the player
         ###move_sound()
         room_event(current_room)
         print_room(current_room)
-        if current_room['trap'] == True:
+        if current_room['trap']:
             death = True
             return
         
@@ -436,7 +436,7 @@ def execute_go(direction): # Function to move the player
         print()
         print("You walked into a wall.\n")
         
-    if death == True:
+    if death:
         return
         
         
@@ -490,7 +490,7 @@ def execute_equip(item_id): # Function to equip a given item
         else:
             for item in inventory:
                 if item == items[item_id]:
-                    if items[item_id]['equippable'] == True:
+                    if items[item_id]['equippable']:
                         if items[item_id]['type'] == 'weapon':
                             if equipped['weapon'] is None:
                                 equipped['weapon'] = items[item_id]
@@ -567,6 +567,8 @@ def execute_use(item_id): # Function to letthe player use potions to heal
     else:
         potion_amount = potion['amount']
         if potion_amount > 0:
+            print("-----------------------------------------------")
+            print()
             if player_hp < max_player_hp:
                 potion_amount -= 1
                 potion['amount'] = potion_amount
@@ -575,14 +577,10 @@ def execute_use(item_id): # Function to letthe player use potions to heal
                 if player_hp > max_player_hp:
                     restored_health -= max_player_hp - player_hp
                     player_hp = max_player_hp
-                print("-----------------------------------------------")
-                print()
                 print("You restored " + str(restored_health) + " health.\n")
             else:
-                print("-----------------------------------------------")
-                print()
                 print("You are already at full health.")
-                print()
+            print()
         else:
             print("You don't have any potions left.")
                     
@@ -590,14 +588,19 @@ def execute_use(item_id): # Function to letthe player use potions to heal
 
                     
             
+<<<<<<< HEAD
 def execute_command(command, room): # Function to process general commands and route them to their functions
     if 0 == len(command):
+=======
+def execute_command(command, room):
+    if len(command) == 0:
+>>>>>>> d390105f766f72eff4752e6cb7058c71fe3ee443
         return
 
     if command[0] == "go":
         if len(command) > 1:
             execute_go(command[1])
-            if death == True:
+            if death:
                 return
         else:
             print("-----------------------------------------------")
@@ -613,14 +616,12 @@ def execute_command(command, room): # Function to process general commands and r
             print("Look at what?\n")
     
     elif command[0] == "view":
+        print("-----------------------------------------------")
+        print()
         if len(command) > 1 and command[1] == "map":
-            print("-----------------------------------------------")
-            print()
             print(ascii_map(room))
             print()
         else:
-            print("-----------------------------------------------")
-            print()
             print("View what?\n")
     
     elif command[0] == 'equip':
@@ -703,61 +704,57 @@ def game_over():
 #settings
 def print_setting_menu():
     #music
-    if music == True:
-        print("-----------------------------------------------")
+    print("-----------------------------------------------")
+    if music:
         print('MUSIC: On')
-        print("-----------------------------------------------")
     else:
-        print("-----------------------------------------------")
         print('MUSIC: Off')
-        print("-----------------------------------------------")
+    print("-----------------------------------------------")
     
     #help
-    if show_help == True:
+    if show_help:
         print('Show HELP : On')
     else:
         print('Show HELP : Off')
     
     #help individual
-    if show_attack == True:
+    if show_attack:
         print('    Show ATTACK help : On')
     else:
         print('    Show ATTACK help : Off')
 
-    if show_potions == True:
+    if show_potions:
         print('    Show POTION help : On')
     else:
         print('    Show POTION help : Off')
         
-    if show_observe == True:
+    if show_observe:
         print('    Show OBSERVE help : On')
     else:
         print('    Show OBSERVE help : Off')
     
-    if show_equip == True:
+    if show_equip:
         print('    Show EQUIP help : On')
     else:
         print('    Show EQUIP help : Off')
 
-    if show_obtain == True:
+    if show_obtain:
         print('    Show OBTAIN help : On')
     else:
         print('    Show OBTAIN help : Off')
         
-    if show_drop == True:
+    if show_drop:
         print('    Show DROP help : On')
     else:
         print('    Show DROP help : Off')
 
-    if show_map == True:
+    if show_map:
         print('    Show MAP help : On')
-        print("-----------------------------------------------")
     else:
         print('    Show MAP help : Off')
-        print("-----------------------------------------------")
-
+        
+    print("-----------------------------------------------")
     print("SETTING HELP for help")
-    print("QUIT to exit setting")
     print()
     print("Quit to apply settings")
     print("-----------------------------------------------")
@@ -790,71 +787,51 @@ def settings_action(command): # Function to process settings, show players a hel
             print("That is not a valid input.")
             
     elif command[0] == "music":
-        if music == True:
+        if music:
             music = False
-        elif music == False:
+        else:
             music = True
-
-    elif command[0] == "help":
-        if show_help == True:
-            show_help = False
-            show_attack = False
-            show_potions = False
-            show_observe = False
-            show_equip = False
-            show_obtain = False
-            show_drop = False
-            show_map = False
-        elif show_help == False:
-            show_help = True
-            show_attack = True
-            show_potions = True
-            show_observe = True
-            show_equip = True
-            show_obtain = True
-            show_drop = True
-            show_map = True
             
     elif command[0] == "attack":
-        if show_attack == True:
+        if show_attack:
             show_attack = False
-        elif show_attack == False:
+        else:
             show_attack = True
 
     elif command[0] == "potion":
-        if show_potions == True:
+        if show_potions:
             show_potions = False
-        elif show_potions == False:
+        else:
             show_potions = True
 
     elif command[0] == "observe":
-        if show_observe == True:
+        if show_observe:
             show_observe = False
-        elif show_observe == False:
+        else:
             show_observe = True
 
     elif command[0] == "equip":
-        if show_equip == True:
+        if show_equip:
             show_equip = False
-        elif show_equip == False:
+        else:
             show_equip = True
 
     elif command[0] == "obtain":
-        if show_obtain == True:
+        if show_obtain:
             show_obtain = False
-        elif show_obtain == False:
+        else:
             show_obtain = True
 
     elif command[0] == "drop":
-        if show_drop == True:
+        if show_drop:
             show_drop = False
-        elif show_drop == False:
+        else:
             show_drop = True
             
     elif command[0] == "map":
-        if show_map == True:
+        if show_map:
             show_map = False
-        elif show_map == False:
+        else:
             show_map = True
     
     elif command[0] == "quit":
@@ -869,14 +846,12 @@ def settings(): # Function to print the settings menu
 
     os.system('cls')
     
-    while setting == True:
+    while setting:
         print_setting_menu()
     
         user_input = input(">>")
 
-        normalised_user_input = normalise_input(user_input)
-
-        settings_action(normalised_user_input)
+        settings_action(normalise_input(user_input))
 
         os.system('cls')
 
@@ -921,28 +896,25 @@ def choose_class(): # Function to get the players class choice
     
     is_choose_class = True
     
-    while is_choose_class == True:
+    while is_choose_class:
         print_class_menu()
     
         user_input = input(">>")
 
-        normalised_user_input = normalise_input(user_input)
-
-        class_action(normalised_user_input)
+        class_action(normalise_input(user_input))
 
         os.system('cls')
 
         if class_choice != '':
-            is_choose_class = False
-
+            is_choose_class = False    
         
         
-        
-        
-        
-        
+<<<<<<< HEAD
 def main(): # Function for the main game loop
     play_sound()
+=======
+def main():
+>>>>>>> d390105f766f72eff4752e6cb7058c71fe3ee443
     print(
  """    ____                                        ______                    __         
    / __ \__  ______  ____ ____  ____  ____     / ____/________ __      __/ /__  _____
@@ -952,6 +924,7 @@ def main(): # Function for the main game loop
                   /____/                                                             """)
     input("Press ENTER to continue.")
     load_screen()
+    play_sound()
     is_choose_class = False
     choose_class()
     print("-----------------------------------------------")
@@ -961,7 +934,7 @@ def main(): # Function for the main game loop
     player_hp = int(max_player_hp)
     while True:
         #music settings
-        if music == True:
+        if music:
             play_sound()
         else:
             stop_sound()
@@ -993,7 +966,7 @@ def main(): # Function for the main game loop
         execute_command(command, current_room)
         
         #game over
-        if death == True:
+        if death:
             game_over()
             break
 
