@@ -72,9 +72,40 @@ They’ve munched their way through protein, smashed their way through sit ups a
 
 #Tier 2 Monsters
 man_made_mermaid = monster('Man-Made Mermaid', '''Created in a lab off-shore far far away.
-Following her escape she took refuge within this dungeon and swears to protect it from any intruders at all costs.''', 2, [trident], '''''')
+Following her escape she took refuge within this dungeon and swears to protect it from any intruders at all costs.''', 2, [trident], '''
+             __
+               _o8o_o888888oo     _
+                 o88888888 ,|    /#\
+        \`.    /| `o88'88o _/    \_/
+         \ `-.' |      __) \__   _Y_
+          `-. .-'     /       \ /[_/
+            | \      / (_(_ /\ y /
+            |  \     \ /.  (  \_/
+            |   \     V\____\
+            \    `-._/      |
+             \     _/      /
+              \           /
+               `-..___..-'
+''')
 half_a_giraffe = monster('Half a Giraffe', '''He’s yellow, brown and not tall at all. He’s a half the size of a normal giraffe but it’s the size of his heart that matters.
-He was outcast by his tribe and then found peace with his height when he was taken in by a tribe of similarly sized big horn unicorns.''', 2, [giraffe_drumstick], '''''')
+He was outcast by his tribe and then found peace with his height when he was taken in by a tribe of similarly sized big horn unicorns.''', 2, [giraffe_drumstick], '''
+
+      O O
+      |_|
+    <(+ +)>
+     ( u )             o
+        \\            /
+         ------------/
+        /|          /|
+       //||      ( /||
+      // ||______//_||
+     //  ||     //  ||
+    //   ||    //   ||
+    \\   ||    \\   ||
+     \\  ||     \\  ||
+     //  ||     //  ||
+    /_\ /__\   /_\ /__\ ''')
+
 big_horn_unicorn = monster ('Big Horn Unicorn', 'This bad boy has an absolute unit of a horn on his head. That’s it. His horn is just an absolute machine.', 2, [unicorn_spear], '''
              ,,))))))));,
            __)))))))))))))),
@@ -95,7 +126,26 @@ big_horn_unicorn = monster ('Big Horn Unicorn', 'This bad boy has an absolute un
            `\_|                   (,~~  
                                    \~\\
                                     ~~ ''')
-deceased_priest = monster('Deceased Priest', 'He’s just a zombie but dressed as a priest. No one really knows how he got the outfit, he was a plumber before he died.', 2, [holy_hand_gernade], '''''')
+deceased_priest = monster('Deceased Priest', 'He’s just a zombie but dressed as a priest. No one really knows how he got the outfit, he was a plumber before he died.', 2, [holy_hand_gernade], '''
+                    #,-. ,-.#
+                  () a   e ()
+                  (   (_)   )
+                  #\_  -  _/#
+                ,'   `"""`    `.
+              ,'      \X/      `.
+             /         X     ____\
+            /          v   ,`  v  `,
+           /    /         ( <==+==> )
+           `-._/|__________\   ^   /
+          (\\)  |______@____\  ^  /
+            \\  |     ( )    \ ^ /
+             )  |             \^/
+            (   |             |v
+           <(^)>|             |
+             v  |             |
+                |             |
+                |_.--.__ .--._|
+                  `==='  `===' ''')
 #Tier 3 Monsters
 one_tonne_skeleton = monster('One Tonne Skeleton', '''This absolute unit of a skeleton used to belong to World's Strongest Man Eddie Hall.
 
@@ -166,7 +216,33 @@ Good luck with this big bad boy, you're going to need it.''', 3, [maracas], '''_
                              )  \\
 /,`--'~--\ ''')
 dragon_in_a_wagon = monster('Dragon in a Wagon', '''Don't underestimate this fiery little boy, he may not look like much with his little red wagon but he can really put up a fight.
-None of the dragons back at home could put up a decent fight, so now he seeks some worthy opponents.''', 3, [dragons_breath_spell], '''''')
+None of the dragons back at home could put up a decent fight, so now he seeks some worthy opponents.''', 3, [dragons_breath_spell], '''
+     ( _)                ( _)
+            / / \\              / /\_\_
+           / /   \\            / / | \ \
+          / /     \\          / /  |\ \ \
+         /  /   ,  \ ,       / /   /|  \ \
+        /  /    |\_ /|      / /   / \   \_\
+       /  /  |\/ _ '_|\    / /   /   \    \\
+      |  /   |/  0 \0\ \  / |    |    \    \\
+      |    |\|      \_\_ /  /    |     \    \\
+      |  | |/    \.\ o\o)  /      \     |    \\
+      \    |     /\\`v-v  /        |    |     \\
+       | \/    /_| \\_|  /         |    | \    \\
+       | |    /__/_     /   _____  |    |  \    \\
+       \|    [__]  \_/  |_________  \   |   \    ()
+        /    [___] (    \         \  |\ |   |   //
+       |    [___]                  |\| \|   /  |/
+      /|    [____]                  \  |/\ / / ||
+     (  \   [____ /     ) _\      \  \    \| | ||
+      \  \  [_____|    / /     __/    \   / / //
+      |   \ [_____/   / /        \    |   \/ //
+      |   /  '----|   /=\____   _/    |   / //
+   __ /  /        |  /   ___/  _/\    \  | ||
+  (/-(/-\)       /   \  (/\/\)/  |    /  | /
+                (/\/\)           /   /   //
+                       _________/   /    /
+                      \____________/    ( ''')
 geiger_tiger = monster('Geiger Tiger', '''Chris used to work in a nuclear power plant before the day of the disaster. He just about survived the blast before the severe radiation
 transformed him into the Geiger Tiger.''', 3, [nuclear_claws], '''
           __  -==-=_,-.
