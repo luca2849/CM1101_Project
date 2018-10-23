@@ -35,7 +35,7 @@ He was outcast by his tribe and then found peace with his height when he was tak
 big_horn_unicorn = monster ('Big Horn Unicorn', 'This bad boy has an absolute unit of a horn on his head. That’s it. His horn is just an absolute machine.', 2, [unicorn_spear])
 deceased_priest = monster('Deceased Priest', 'He’s just a zombie but dressed as a priest. No one really knows how he got the outfit, he was a plumber before he died.', 2, [holy_hand_gernade])
 #Tier 3 Monsters
-one_tonne_skeleton = monster('''One Tonne Skeleton', 'This absolute unit of a skeleton used to belong to World's Strongest Man Eddie Hall.
+one_tonne_skeleton = monster('One Tonne Skeleton', '''This absolute unit of a skeleton used to belong to World's Strongest Man Eddie Hall.
 He's retired now so he doesn't need it, now it's your problem.''', 3, [bone_saw])
 tyrannosaurus_mex = monster('Tyrannosaurus Mex', '''A spicy Mexican dinosaur rocking a fiery sombrero, wielding some deadly maracas and busting some sick dance moves.
 Good luck with this big bad boy, you're going to need it.''', 3, [maracas])
