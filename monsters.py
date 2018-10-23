@@ -268,7 +268,38 @@ _'    `\   _/=== \___/
                 \___-
 ''')
 #Bosses
-kirill_riding_a_bear = monster('Kirill Riding a bear', '''Overlord of the Dungeon, overseer of our first module, also a certified absolute legend. He's all that stands in your way now. Finish him.''', 7, [trophy_for_winning_the_game], '''''')
+kirill_riding_a_bear = monster('Kirill Riding a bear', '''Overlord of the Dungeon, overseer of our first module, also a certified absolute legend.
+He's all that stands in your way now. Finish him.''', 7, [trophy_for_winning_the_game], '''
+
+
+
+                 .-:+syyyso/-
+              ./sddmmmmmmmmmhys+:
+            yydddmmmmmmmmmmmmmmmy:
+          :hdddmmmmmmmmmmmmmmNNmmd+.
+         +mmmmdhyso+++++oshdmNmmmdm+`
+         ddo+//::-....----/+ymNmmmmd.
+         +d/:--........--.--:+hNNmmmd
+         yh:----..........--:/ymNmmmd
+         hd::::------::/:::-::/dNmNNm+
+         ohs+ossosooooosyssyssyydmmyss
+         IIIIIII+o-so/IIIIII::/hhy:/o.
+         IXXXXX:I-IIIIXXXXXXI=========
+         IIIIIII.-:://IIIIII-:::--/s.
+           -::/:://///:::///::::::+yy-
+           `:::/s/::::/+o:::::::/:+y
+            .:-.://////:-.-::////:+s
+             `-----::---.-://+/:::oNmo.
+               `--.--.--:/++/::::/hNmmd+.```
+            .://+os////++++/::--/shmmmmmmmdy+:.```..
+        /shdmmmmNm//////::--:oyhhmmmmmmmmmmdddho:..
+     .ydmmmmmmmdd+:----::oyhhddmmmmmmmmmmmmmddddmd
+    `hdmmmmmmmhdmh::::oyddddddmmmmmmmmmmmmmmmmmmmN
+    /dmmmmmmmdhdmm+::odmddddddmmmmmmmmmmmmmmmNNNNN
+    ymmmmmmmmmNmmdy-:hmmdyddddmmmmmmmmNmNNmmNNNNNN
+    dmmmmmmmmNNdmddosdmmhddhddmmmmmmmmNNNmNNNNNNNN
+
+            ''')
 
 
 
