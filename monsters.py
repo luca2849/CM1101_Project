@@ -18,11 +18,10 @@ class monster:
 # =============
 
 #Tier 1 Monsters
-zombeez = monster('Zombeez', '''These little fellas a'int here to make honey, they're here chew gum and eat brains. And they're all out of gum.''', 1, [bee_stingers])
+zombeez = monster('Zombeez', 'Swarm of Zombeez', 1, [bee_stingers])
 computer_on_a_scooter = monster('Computer on a Scooter', '''Half computer, half absolute legend, the raddest dude on earth. He shreds the streets on his 2005 razor scooter with sparks.
 All the ladies want him, but none can have him. He’s too dedicated to the scooter life. ''', 1, [ddos_attack_script])
-tequila_sheila = monster('Tequila Shelia', '''After a rough few months going through a messy divorce Sheila turned to the
-tequila. It was the only thing that gave her love anymore. She is high key an alcoholic and should probably go see someone but instead she’s stuck in a dungeon''', 1, [broken_bottle])
+tequila_sheila = monster('Tequila Shelia', '', 1, [broken_bottle])
 crabs_with_abs = monster('Crabs with Abs', '''These bad boys have been hitting the gym over the summer. They’ve bulked up big time.
 They’ve munched their way through protein, smashed their way through sit ups and injected a metric tonne of steroids.''', 1, [workout_routine])
 #Tier 2 Monsters
@@ -33,14 +32,12 @@ He was outcast by his tribe and then found peace with his height when he was tak
 big_horn_unicorn = monster ('Big Horn Unicorn', 'This bad boy has an absolute unit of a horn on his head. That’s it. His horn is just an absolute machine.', 2, [unicorn_spear])
 deceased_priest = monster('Deceased Priest', 'He’s just a zombie but dressed as a priest. No one really knows how he got the outfit, he was a plumber before he died.', 2, [holy_hand_gernade])
 #Tier 3 Monsters
-one_tonne_skeleton = monster('One Tonne Skeleton', '''This absolute unit of a skeleton used to belong to
-World's Strongest Man Eddie Hall. He doesn't need it anymore, he's retired. Now it's your problem. ''', 3, [bone_saw])
+one_tonne_skeleton = monster('One Tonne Skeleton', 'A big skeleton', 3, [bone_saw])
 tyrannosaurus_mex = monster('Tyrannosaurus Mex', '''A spicy Mexican dinosaur rocking a fiery sombrero, wielding some deadly maracas and busting some sick dance moves.
 Good luck with this big bad boy, you're going to need it.''', 3, [maracas])
 dragon_in_a_wagon = monster('Dragon in a Wagon', '''Don't underestimate this fiery little boy, he may not look like much with his little red wagon but he can really put up a fight.
 None of the dragons back at home could put up a decent fight, so now he seeks some worthy opponents.''', 3, [dragons_breath_spell])
-geiger_tiger = monster('Geiger Tiger', '''Chris used to work in a nuclear power plant before the disaster. He survived the blast, just about.
-But that's when he transformed into the Geiger Tiger.''', 3, [nuclear_claws])
+geiger_tiger = monster('Geiger Tiger', '', 3, [nuclear_claws])
 #Bosses
 kirill_riding_a_bear = monster('Kirill Riding a bear', '', 7, [trophy_for_winning_the_game])
 
