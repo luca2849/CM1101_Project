@@ -9,6 +9,7 @@ from random_action import *
 from items import *
 from settings import *
 from load_screen import load_screen
+from threading import Timer
 import os
 
 #battle 
@@ -787,6 +788,26 @@ def settings_action(command):
             music = False
         else:
             music = True
+
+    elif command[0] == "help":
+        if show_help == True:
+            show_help = False
+            show_attack = False
+            show_potions = False
+            show_observe = False
+            show_equip = False
+            show_obtain = False
+            show_drop = False
+            show_map = False
+        elif show_help == False:
+            show_help = True
+            show_attack = True
+            show_potions = True
+            show_observe = True
+            show_equip = True
+            show_obtain = True
+            show_drop = True
+            show_map = True
             
     elif command[0] == "attack":
         if show_attack:
