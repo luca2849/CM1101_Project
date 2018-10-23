@@ -23,14 +23,14 @@ zombeez = monster('Zombeez', '''These little fellas ain't here to make honey. Th
 And they're all out of gum.''', 1, [bee_stingers], '''
  ,,     ,,     ,,
   oo    _oo_   ,oo,
- /==\   /==\   /==\
+ /==\   /==\   /==\\
 (/==\) (/==\) (/==\)
   \/     \/     \/ ''')
 computer_on_a_scooter = monster('Computer on a Scooter', '''Half computer, half absolute legend, the raddest dude on earth. He shreds the streets on his 2005 razor scooter with sparks.
 All the ladies want him, but none can have him. He’s too dedicated to the scooter life. ''', 1, [ddos_attack_script], '''
   _________
-    / ======= \
-   / __________\
+    / ======= \\
+   / __________\\
   | ___________ |
   | | -       | |
   | |         | |
@@ -42,18 +42,18 @@ All the ladies want him, but none can have him. He’s too dedicated to the scoo
 tequila_sheila = monster('Tequila Shelia', '''After a rough few months going through a messy divorce Sheila turned to the
 tequila. It was the only thing that gave her love anymore. She is high key an alcoholic
 and should probably go see someone but instead she’s stuck in a dungeon''', 1, [broken_bottle], '''
- /////////////\\\\
-(((((((((((((( \\\\
+ /////////////\\\\\\\\
+(((((((((((((( \\\\\\\\
 ))) ~~      ~~  (((
 ((( (*)     (*) )))
 )))     <       (((
 ((( '\______/`  )))
 )))\___________/(((
        _) (_
-      / \_/ \
-     /(     )\
-    // )___( \\
-    \\(     )//
+      / \_/ \\
+     /(     )\\
+    // )___( \\\\
+    \\\\(     )//
      (       )
       |  |  |
        | | |
@@ -61,13 +61,13 @@ and should probably go see someone but instead she’s stuck in a dungeon''', 1,
       _|_|_|_ ''')
 crabs_with_abs = monster('Crabs with Abs', '''These bad boys have been hitting the gym over the summer. They’ve bulked up big time.
 They’ve munched their way through protein, smashed their way through sit ups and injected a metric tonne of steroids.''', 1, [workout_routine], '''
-     /\
+     /\\
     ( /   @ @    ()
-     \\ __| |__  /
+     \\\\ __| |__  /
       \/   "   \/
-     /-|   ()  |-\
-    / /-\  () /-\ \
-     / /-`---'-\ \
+     /-|   ()  |-\\
+    / /-\  () /-\ \\
+     / /-`---'-\ \\
       /         \  ''')
 
 #Tier 2 Monsters
@@ -83,17 +83,17 @@ big_horn_unicorn = monster ('Big Horn Unicorn', 'This bad boy has an absolute un
 /|\      ))| o    ;-.    '(((((                                  ,(,
          ( `|    /  )    ;))))'                               ,_))^;(~
             |   |   |   ,))((((_     _____------~~~-.        %,;(;(>';'~
-            o_);   ;    )))(((` ~---~  `::           \      %%~~)(v;(`('~
-                  ;    ''````         `:       `:::|\,__,%%    );`'; ~
+            o_);   ;    )))(((` ~---~  `::           \      %%%%~~)(v;(`('~
+                  ;    ''````         `:       `:::|\,__,%%%%    );`'; ~
                  |   _                )     /      `:|`----'     `-'
            ______/\/~    |                 /        /
          /~;;.____/;;'  /          ___--,-(   `;;;/
         / //  _;______;'------~~~~~    /;;/\    /
-       //  | |                        / ;   \;;,\
+       //  | |                        / ;   \;;,\\
       (<_  | ;                      /',/-----'  _>
        \_| ||_                     //~;~~~~~~~~~
            `\_|                   (,~~  
-                                   \~\
+                                   \~\\
                                     ~~ ''')
 deceased_priest = monster('Deceased Priest', 'He’s just a zombie but dressed as a priest. No one really knows how he got the outfit, he was a plumber before he died.', 2, [holy_hand_gernade], '''''')
 #Tier 3 Monsters
@@ -102,7 +102,7 @@ one_tonne_skeleton = monster('One Tonne Skeleton', '''This absolute unit of a sk
 He's retired now so he doesn't need it, now it's your problem.''', 3, [bone_saw], '''
                             _.--""-._
   .                         ."         ".
- / \    ,^.         /(     Y             |      )\
+ / \    ,^.         /(     Y             |      )\\
 /   `---. |--'\    (  \__..'--   -   -- -'""-.-'  )
 |        :|    `>   '.     l_..-------.._l      .'
 |      __l;__ .'      "-.__.||_.-'v'-._||`"----"
@@ -111,9 +111,9 @@ He's retired now so he doesn't need it, now it's your problem.''', 3, [bone_saw]
         | |                _   \_____/     _
         j |               l `--__)-'(__.--' |
         | |               | /`---``-----'"1 |  ,-----.
-        | |               )/  `--' '---'   \'-'  ___  `-.
-        | |              //  `-'  '`----'  /  ,-'   I`.  \
-      _ L |_            //  `-.-.'`-----' /  /  |   |  `. \
+        | |               )/  `--' '---'   \\'-'  ___  `-.
+        | |              //  `-'  '`----'  /  ,-'   I`.  \\
+      _ L |_            //  `-.-.'`-----' /  /  |   |  `. \\
      '._' / \         _/(   `/   )- ---' ;  /__.J   L.__.\ :
       `._;/7(-.......'  /        ) (     |  |            | |
       `._;l _'--------_/        )-'/     :  |___.    _._./ ;
@@ -123,10 +123,10 @@ He's retired now so he doesn't need it, now it's your problem.''', 3, [bone_saw]
                               )-._.-- (        `-----'
                              )(  l\ o ('..-.
                        _..--' _'-' '--'.-. |
-                __,,-'' _,,-''            \ \
-               f'. _,,-'                   \ \
-              ()--  |                       \ \
-                \.  |                       /  \
+                __,,-'' _,,-''            \ \\
+               f'. _,,-'                   \ \\
+              ()--  |                       \ \\
+                \.  |                       /  \\
                   \ \                      |._  |
                    \ \                     |  ()|
                     \ \                     \  /
@@ -135,7 +135,7 @@ He's retired now so he doesn't need it, now it's your problem.''', 3, [bone_saw]
                  _.//7'                      | |
                '---'                         j_| `
                                             (| |
-                                             |  \
+                                             |  \\
                                              |lllj
                                              |||||
 
@@ -163,7 +163,7 @@ Good luck with this big bad boy, you're going to need it.''', 3, [maracas], '''_
         "-.,_____.,_  _.--~\     _.-~
                     ~~     (   _}      
                            `. ~(
-                             )  \
+                             )  \\
 /,`--'~--\ ''')
 dragon_in_a_wagon = monster('Dragon in a Wagon', '''Don't underestimate this fiery little boy, he may not look like much with his little red wagon but he can really put up a fight.
 None of the dragons back at home could put up a decent fight, so now he seeks some worthy opponents.''', 3, [dragons_breath_spell], '''''')
@@ -172,20 +172,20 @@ transformed him into the Geiger Tiger.''', 3, [nuclear_claws], '''
           __  -==-=_,-.
         /--`' \_@-@.--<
         `--'\ \   <___/.  
-             \ \\   " /  
-              >=\\_/`<
+             \ \\\\   " /  
+              >=\\\\_/`<
   ____       /= |  \_|/
 _'    `\   _/=== \___/
-`___/ //\./=/~\====\
+`___/ //\./=/~\====\\
     \   // /   | ===:
      |  ._/_,__|_ ==:        __
-      \/    \\ \\`--|       / \\
-       |    _     \\:      /==:-\
+      \/    \\\\ \\\\`--|       / \\\\
+       |    _     \\\\:      /==:-\\
        `.__' `-____/       |--|==:
           \    \ ===\      :==:`-'
           _>    \ ===\    /==/
          /==\   |  ===\__/--/
-        <=== \  /  ====\ \\/
+        <=== \  /  ====\ \\\\/
         _`--  \/  === \/--'
        |       \ ==== |
         -`------/`--' /
@@ -222,3 +222,6 @@ while True:
     print_random_monster(0,len(monster_list))
     sleep(1)
 '''
+
+for i in range (12):
+  print(monster_list[i].ascii_art)
