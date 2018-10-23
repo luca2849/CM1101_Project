@@ -82,8 +82,7 @@ He's retired now so he doesn't need it, now it's your problem.''', 3, [bone_saw]
 
 ''')
 
-He's retired now so he doesn't need it, now it's your problem.''', 3, [bone_saw], '''''')
->>>>>>> dc7b27ac7fec74c70ed1964c57bc51280f26ee25
+
 tyrannosaurus_mex = monster('Tyrannosaurus Mex', '''A spicy Mexican dinosaur rocking a fiery sombrero, wielding some deadly maracas and busting some sick dance moves.
 Good luck with this big bad boy, you're going to need it.''', 3, [maracas], '''____
        ___                                      .-~. /_"-._
