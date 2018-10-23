@@ -12,7 +12,7 @@ from load_screen import load_screen
 import os
 
 #battle 
-def room_event(room):
+def room_event(room): # Function for deciding what happens when you enter a room
     if room['monster'] is not None:
         battle(room['monster'])
     elif room['boss'] is not None:
@@ -21,7 +21,7 @@ def room_event(room):
         return
         
         
-def print_battle(monster_gen):  
+def print_battle(monster_gen): # Function for printing battle information
     print("-----------------------------------------------")
     print()
     print("A monster blocks your way.\n")
@@ -30,7 +30,7 @@ def print_battle(monster_gen):
     print(monster_list[monster_gen].description, '\n')
 
 
-def print_boss_battle(boss):
+def print_boss_battle(boss): # Function for printing boss battle information
     print("-----------------------------------------------")
     print()
     print("The boss appears in front of you.\n")
@@ -38,7 +38,7 @@ def print_boss_battle(boss):
     print(boss.description, '\n')
     
 
-def display_monster_hp(monster_hp, full_monster_hp):
+def display_monster_hp(monster_hp, full_monster_hp): # Function for displaying monster HP
     health = monster_hp
     max_health = full_monster_hp  
     health_dashes = 20
@@ -52,7 +52,7 @@ def display_monster_hp(monster_hp, full_monster_hp):
     print("HP: ""|" + health_display + remaining_display + "|", health, "/", max_health)
 
 
-def display_player_hp(player_hp, full_player_hp):
+def display_player_hp(player_hp, full_player_hp): # Function for displaying player HP
     health = player_hp
     max_health = full_player_hp
     health_dashes = 20
@@ -66,7 +66,7 @@ def display_player_hp(player_hp, full_player_hp):
     print("HP: ""|" + health_display + remaining_display + "|", health, "/", max_health)
     
 
-def print_battle_menu(): 
+def print_battle_menu(): # Function to print all of the options available to the player
     print("You can:")
     if show_attack == True:
         print("ATTACK to attack monster")
@@ -75,12 +75,12 @@ def print_battle_menu():
             print("USE POTION to use potion")
     
 
-def is_battle(monster_hp):
+def is_battle(monster_hp): # Function for checking if a battle can continue by checking if the monster is still alive
     if monster_hp > 0:
         return True
     
     
-def battle_seq(monster_gen, monster_hp, full_monster_hp):
+def battle_seq(monster_gen, monster_hp, full_monster_hp): # Function to print the battle sequence
     global exp
     global player_hp
     global max_player_hp
@@ -143,7 +143,7 @@ def battle_seq(monster_gen, monster_hp, full_monster_hp):
     print("-----------------------------------------------")
     
 
-def after_battle(monster_gen):
+def after_battle(monster_gen): # Function for the after-battle sequence
     global dropped_items
     append_item = True
     item = random_drop(monster_gen)
@@ -160,7 +160,7 @@ def after_battle(monster_gen):
     print()
     
 
-def after_battle_boss(boss):
+def after_battle_boss(boss): # Function to drop bosses items
     global dropped_items
     for item in boss.drops:
         drop = item
@@ -169,7 +169,7 @@ def after_battle_boss(boss):
     print()
     
     
-def print_if_level_up():
+def print_if_level_up(): # Function to check if the player has levelled up and if so to display a congratulatory message
     global exp
     global player_level
     
@@ -177,7 +177,7 @@ def print_if_level_up():
         print("LEVEL UP    (hp +10, max hp +20, attack +3)")
         
     
-def boss_battle_seq(boss, boss_hp, max_boss_hp):
+def boss_battle_seq(boss, boss_hp, max_boss_hp): # Function to print the boss battle sequence
     global exp
     global player_hp
     global max_player_hp
@@ -243,13 +243,13 @@ def boss_battle_seq(boss, boss_hp, max_boss_hp):
 
     
     
-def battle_boss(boss):
+def battle_boss(boss): # Function to start the boss battle
     print_boss_battle(boss)
     boss_battle_seq(boss, boss_hp, max_boss_hp)
     if death == True:
         return
     
-def battle(monster_number):
+def battle(monster_number): # Function to decided what monster to spawn dependent on the room and tier
     x = 0
     y = 1
     if monster_number == 1:
@@ -317,11 +317,11 @@ def print_equip_items(items):         #print player's inventory
     else:
         print('Weapon: ' + items['weapon']['name'] + '(+',items['weapon']['power'] * 3,'atk)')
         
-def print_exit(direction, leads_to):
+def print_exit(direction, leads_to): # Function to print all possible exits
     print("GO " + direction.upper() + " to " + leads_to + ".")
     
     
-def exit_leads_to(exits, direction):
+def exit_leads_to(exits, direction): # Function to show where an exit leads
     return rooms[exits[direction]]["name"]
     
     
@@ -388,22 +388,22 @@ def menu(exits, inv_items):         #calls print_menu() and normalises input()
     return normalised_user_input
 
 
-def is_valid_exit(exits, chosen_exit):
+def is_valid_exit(exits, chosen_exit): # Function to check if a given exit is valid
     return chosen_exit in exits
 
 
-def move(exits, direction):
+def move(exits, direction): # Function to move the player to a new room
     return rooms[exits[direction]]
         
 
-def check_key():
+def check_key(): # Function checks if the player has the boss room key
     for item in inventory:
         if item['id'] == 'key':
             return True
     return False
             
             
-def execute_go(direction):
+def execute_go(direction): # Function to move the player
     global current_room
     global dropped_items
     global death
@@ -440,7 +440,7 @@ def execute_go(direction):
         return
         
         
-def execute_observe(item_id):
+def execute_observe(item_id): # Function to process the observe command to see more information about an item
     if item_id not in items:
         print("-----------------------------------------------")
         print()
@@ -471,7 +471,7 @@ def execute_observe(item_id):
 
         
         
-def execute_equip(item_id):
+def execute_equip(item_id): # Function to equip a given item
     global equipped
     global inventory
     if item_id not in items:
@@ -502,7 +502,7 @@ def execute_equip(item_id):
                                 
                     
                  
-def execute_obtain(item_id):
+def execute_obtain(item_id): # Function to allow players to pick up an item from the ground
     global inventory
     global dropped_items
     global potion
@@ -531,7 +531,7 @@ def execute_obtain(item_id):
                     dropped_items.remove(items[item_id])
                     
 
-def execute_drop(item_id):
+def execute_drop(item_id): # Function to let players drop items
     global inventory
     global dropped_items
     if item_id not in items:
@@ -554,7 +554,7 @@ def execute_drop(item_id):
                     inventory.remove(items[item_id])
 
 
-def execute_use(item_id):
+def execute_use(item_id): # Function to letthe player use potions to heal
     global potion
     global player_hp
     
@@ -590,7 +590,7 @@ def execute_use(item_id):
 
                     
             
-def execute_command(command, room):
+def execute_command(command, room): # Function to process general commands and route them to their functions
     if 0 == len(command):
         return
 
@@ -663,8 +663,7 @@ def execute_command(command, room):
         print()
         print("You are speaking nonsense.\n")
         
-        
-def display_exp(exp, max_exp):
+def display_exp(exp, max_exp): # Function to display current experience
     dashes = 20
     
     dash_convert = max_exp/dashes
@@ -764,7 +763,7 @@ def print_setting_menu():
     print("-----------------------------------------------")
     
     
-def settings_action(command):
+def settings_action(command): # Function to process settings, show players a help menu and allow for settings to be changed
     global music
     global show_help
     global show_attack
@@ -863,7 +862,7 @@ def settings_action(command):
         os.system('cls')
 
     
-def settings():
+def settings(): # Function to print the settings menu
     global setting
     
     setting = True
@@ -882,7 +881,7 @@ def settings():
         os.system('cls')
 
 
-def print_class_menu():
+def print_class_menu(): # Function to print a menu to show the user class choices
     print("-----------------------------------------------")
     print("Choose a class:")
     print("ALCHEMIST: Start with 3 potions.")
@@ -891,7 +890,7 @@ def print_class_menu():
     print("-----------------------------------------------")
     
     
-def class_action(command):
+def class_action(command): # Function to apply class bonuses
     global potion
     global exp
     global is_choose_class
@@ -917,7 +916,7 @@ def class_action(command):
         return
 
     
-def choose_class():
+def choose_class(): # Function to get the players class choice
     global choose_class
     
     is_choose_class = True
@@ -942,7 +941,7 @@ def choose_class():
         
         
         
-def main():
+def main(): # Function for the main game loop
     play_sound()
     print(
  """    ____                                        ______                    __         
@@ -972,7 +971,7 @@ def main():
             if item == trophy_for_winning_the_game:
                 print("-----------------------------------------------")
                 print()
-                print("You defeated the game!")
+                print("You've completed the game!")
                 input("Press ENTER to continue.")
                 return
         
