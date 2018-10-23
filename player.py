@@ -6,7 +6,9 @@ current_room = start
 
 inventory = [stick]
 
-equipped = {'weapon' : None}
+equipped = {
+    'weapon' : None
+}
 
 inventory_heal = [potion]
 
