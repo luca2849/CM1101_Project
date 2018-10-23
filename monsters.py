@@ -18,7 +18,8 @@ class monster:
 # =============
 
 #Tier 1 Monsters
-zombeez = monster('Zombeez', 'Swarm of Zombeez', 1, [bee_stingers])
+zombeez = monster('Zombeez', '''These little fellas ain't here to make honey. They're here to chew gum and eat brains.
+And they're all out of gum.''', 1, [bee_stingers])
 computer_on_a_scooter = monster('Computer on a Scooter', '''Half computer, half absolute legend, the raddest dude on earth. He shreds the streets on his 2005 razor scooter with sparks.
 All the ladies want him, but none can have him. He’s too dedicated to the scooter life. ''', 1, [ddos_attack_script])
 tequila_sheila = monster('Tequila Shelia', '', 1, [broken_bottle])
