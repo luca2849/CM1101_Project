@@ -27,47 +27,18 @@ tequila_sheila = monster('Tequila Shelia', '''After a rough few months going thr
 tequila. It was the only thing that gave her love anymore. She is high key an alcoholic
 and should probably go see someone but instead she’s stuck in a dungeon''', 1, [broken_bottle], '''''')
 crabs_with_abs = monster('Crabs with Abs', '''These bad boys have been hitting the gym over the summer. They’ve bulked up big time.
-They’ve munched their way through protein, smashed their way through sit ups and injected a metric tonne of steroids.''', 1, [workout_routine], '''
-
-     /\          /\
-    ( /   @ @    ()
-     \\ __| |__  /
-      \/   "   \/
-     /-|  ()   |-\
-    / /-\ ()  /-\ \
-     / /-`---'-\ \
-      /         \   ''')
+They’ve munched their way through protein, smashed their way through sit ups and injected a metric tonne of steroids.''', 1, [workout_routine], '''''')
 
 #Tier 2 Monsters
 man_made_mermaid = monster('Man-Made Mermaid', '''Created in a lab off-shore far far away.
 Following her escape she took refuge within this dungeon and swears to protect it from any intruders at all costs.''', 2, [trident], '''''')
 half_a_giraffe = monster('Half a Giraffe', '''He’s yellow, brown and not tall at all. He’s a half the size of a normal giraffe but it’s the size of his heart that matters.
 He was outcast by his tribe and then found peace with his height when he was taken in by a tribe of similarly sized big horn unicorns.''', 2, [giraffe_drumstick], '''''')
-big_horn_unicorn = monster ('Big Horn Unicorn', 'This bad boy has an absolute unit of a horn on his head. That’s it. His horn is just an absolute machine.', 2, [unicorn_spear], '''
-
-             ,,))))))));,
-           __)))))))))))))),
-\|/       -\(((((''((((((((.
--*-===//////((''  .     `)))))),
-/|\      ))| o    ;-.    '(((((                                  ,(,
-         ( `|    /  )    ;))))'                               ,_))^;(~
-            |   |   |   ,))((((_     _____------~~~-.        %,;(;(>';'~
-            o_);   ;    )))(((` ~---~  `::           \      %%~~)(v;(`('~
-                  ;    ''````         `:       `:::|\,__,%%    );`'; ~
-                 |   _                )     /      `:|`----'     `-'
-           ______/\/~    |                 /        /
-         /~;;.____/;;'  /          ___--,-(   `;;;/
-        / //  _;______;'------~~~~~    /;;/\    /
-       //  | |                        / ;   \;;,\
-      (<_  | ;                      /',/-----'  _>
-       \_| ||_                     //~;~~~~~~~~~
-           `\_|                   (,~~  -Tua Xiong
-                                   \~\
-                                    ~~
-                                    ''')
+big_horn_unicorn = monster ('Big Horn Unicorn', 'This bad boy has an absolute unit of a horn on his head. That’s it. His horn is just an absolute machine.', 2, [unicorn_spear], '''''')
 deceased_priest = monster('Deceased Priest', 'He’s just a zombie but dressed as a priest. No one really knows how he got the outfit, he was a plumber before he died.', 2, [holy_hand_gernade], '''''')
 #Tier 3 Monsters
 one_tonne_skeleton = monster('One Tonne Skeleton', '''This absolute unit of a skeleton used to belong to World's Strongest Man Eddie Hall.
+
 He's retired now so he doesn't need it, now it's your problem.''', 3, [bone_saw], '''
                             _.--""-._
   .                         ."         ".
@@ -110,6 +81,9 @@ He's retired now so he doesn't need it, now it's your problem.''', 3, [bone_saw]
 
 
 ''')
+
+He's retired now so he doesn't need it, now it's your problem.''', 3, [bone_saw], '''''')
+>>>>>>> dc7b27ac7fec74c70ed1964c57bc51280f26ee25
 tyrannosaurus_mex = monster('Tyrannosaurus Mex', '''A spicy Mexican dinosaur rocking a fiery sombrero, wielding some deadly maracas and busting some sick dance moves.
 Good luck with this big bad boy, you're going to need it.''', 3, [maracas], '''____
        ___                                      .-~. /_"-._
