@@ -13,7 +13,10 @@ from threading import Timer
 from msvcrt import getch
 import os
 
-#battle 
+# =====================
+#        Battle
+# =====================
+
 def room_event(room): # Function for deciding what happens when you enter a room
     if room['monster'] is not None:
         battle(room['monster'])
@@ -404,15 +407,14 @@ def check_key(): # Function checks if the player has the boss room key
             return True
     return False
 
-def trap_room():
+def trap_room(): # Function for the quick-time event in the trap rooms
     action = "s"
     global dodge_check
-    def timeup():
+    def timeup(): # Nested function for when the player runs out of time
         global dodge_check
         print("The time's up! Press any key to continue.")
         dodge_check = True
         t.cancel()
-
     t = Timer(3, timeup)
     t.start()
     print("Duck! (press 'S')\n")
