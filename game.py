@@ -10,6 +10,7 @@ from items import *
 from settings import *
 from load_screen import load_screen
 from threading import Timer
+from msvcrt import getch
 import os
 
 #battle 
@@ -119,9 +120,9 @@ def battle_seq(monster_gen, monster_hp, full_monster_hp): # Function to print th
                     player_hp -= monster_atk
                     print(monster_list[monster_gen].name,"deals", monster_atk, "to you.")
                     print()
-                    #if player_hp <= 0:
-                        #death = True
-                        #return
+                    if player_hp <= 0:
+                        death = True
+                        return
             elif normalised_player_input[0] == 'use':
                 if normalised_player_input[1] == 'potion':
                     execute_use(normalised_player_input[1])
@@ -366,7 +367,7 @@ def print_menu(exits, inv_items, equip_item, dropped_items):         #print list
     
     if show_map:
         print("VIEW MAP to look at the map")
-    
+        
     print("SETTINGS to change settings")
     print("What do you want to do?")
     
@@ -402,8 +403,46 @@ def check_key(): # Function checks if the player has the boss room key
         if item['id'] == 'key':
             return True
     return False
-            
-            
+
+def trap_room():
+    action = "s"
+    global dodge_check
+    def timeup():
+        global dodge_check
+        print("The time's up! Press any key to continue.")
+        dodge_check = True
+        t.cancel()
+
+    t = Timer(3, timeup)
+    t.start()
+    print("Duck! (press 'S')\n")
+    usr_inp = str(getch())[2].lower()
+    if dodge_check:
+        usr_inp = ""
+    if usr_inp == action:
+        os.system('cls')
+        print("A second spike is coming out of the floor!\n\n" + "Jump! (press 'W')")
+        action = "w"
+        t.cancel()
+        t = Timer(3, timeup)
+    else:
+        t.cancel()
+        t = Timer(3, timeup)
+        return True
+    t.start()
+    usr_inp = str(getch())[2].lower()
+    if dodge_check:
+        usr_inp = ""
+    if usr_inp == action:
+        print("You survived the traps!")
+    else:
+        t.cancel()
+        t = Timer(3, timeup)
+        return True
+    t.cancel()
+    t = Timer(3, timeup)
+    return False
+
 def execute_go(direction): # Function to move the player
     global current_room
     global dropped_items
@@ -429,8 +468,9 @@ def execute_go(direction): # Function to move the player
         room_event(current_room)
         print_room(current_room)
         if current_room['trap']:
-            death = True
-            return
+            if trap_room():
+                death = True
+                return
         
     else:
         print("-----------------------------------------------")
@@ -690,7 +730,7 @@ def level_up():
 def game_over():
     print("-----------------------------------------------")
     print()
-    print("Gameover \nYou lose")
+    print("Game Over \nYou lose")
     game_over_sound()
     input("Press ENTER to continue.")
     
