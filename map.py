@@ -104,7 +104,7 @@ r9 = {
 boss = {
     'name': 'boss room',
     'position': 'position_boss',
-    'description':"""This is the room where the final boss stands. Legends has it that noone has defeted him before.""",
+    'description':"""This is the room where the final boss stands. Legend has it that no one has defeted him before.""",
     'exits': {},
     'monster': None,
     'boss': kirill_riding_a_bear,
@@ -115,7 +115,7 @@ boss = {
 start = {
     'name': 'start',
     'position': 'position_start',
-    'description':"""You woke up in this dark room. Unknown where you are.""",
+    'description':"""You woke up in this dark room. You don't know where you are.""",
     'exits': {'north': 'rm2'},
     'monster': None,
     'boss': None,

@@ -41,7 +41,7 @@ All the ladies want him, but none can have him. He’s too dedicated to the scoo
 (_________________)''')
 tequila_sheila = monster('Tequila Shelia', '''After a rough few months going through a messy divorce Sheila turned to the
 tequila. It was the only thing that gave her love anymore. She is high key an alcoholic
-and should probably go see someone but instead she’s stuck in a dungeon''', 1, [broken_bottle], '''
+and should probably go see someone but instead she’s stuck in a dungeon.''', 1, [broken_bottle], '''
  /////////////\\\\\\\\
 (((((((((((((( \\\\\\\\
 ))) ~~      ~~  (((
