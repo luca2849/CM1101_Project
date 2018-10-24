@@ -273,8 +273,6 @@ def battle(monster_number): # Function to decided what monster to spawn dependen
 
 
 #others  
-def game_over():
-    print()
     
 def is_empty(any_structure):
     if any_structure:
@@ -738,7 +736,26 @@ def level_up():
 def game_over():
     print("-----------------------------------------------")
     print()
-    print("Game Over \nYou lose")
+    print("Game Over \n")
+    print('''
+YYYYYYY       YYYYYYY                                     lllllll                                                       
+Y:::::Y       Y:::::Y                                     l:::::l                                                       
+Y:::::Y       Y:::::Y                                     l:::::l                                                       
+Y::::::Y     Y::::::Y                                     l:::::l                                                       
+YYY:::::Y   Y:::::YYYooooooooooo   uuuuuu    uuuuuu        l::::l    ooooooooooo       ssssssssss       eeeeeeeeeeee    
+   Y:::::Y Y:::::Y oo:::::::::::oo u::::u    u::::u        l::::l  oo:::::::::::oo   ss::::::::::s    ee::::::::::::ee  
+    Y:::::Y:::::Y o:::::::::::::::ou::::u    u::::u        l::::l o:::::::::::::::oss:::::::::::::s  e::::::eeeee:::::ee
+     Y:::::::::Y  o:::::ooooo:::::ou::::u    u::::u        l::::l o:::::ooooo:::::os::::::ssss:::::se::::::e     e:::::e
+      Y:::::::Y   o::::o     o::::ou::::u    u::::u        l::::l o::::o     o::::o s:::::s  ssssss e:::::::eeeee::::::e
+       Y:::::Y    o::::o     o::::ou::::u    u::::u        l::::l o::::o     o::::o   s::::::s      e:::::::::::::::::e 
+       Y:::::Y    o::::o     o::::ou::::u    u::::u        l::::l o::::o     o::::o      s::::::s   e::::::eeeeeeeeeee  
+       Y:::::Y    o::::o     o::::ou:::::uuuu:::::u        l::::l o::::o     o::::ossssss   s:::::s e:::::::e           
+       Y:::::Y    o:::::ooooo:::::ou:::::::::::::::uu     l::::::lo:::::ooooo:::::os:::::ssss::::::se::::::::e          
+    YYYY:::::YYYY o:::::::::::::::o u:::::::::::::::u     l::::::lo:::::::::::::::os::::::::::::::s  e::::::::eeeeeeee  
+    Y:::::::::::Y  oo:::::::::::oo   uu::::::::uu:::u     l::::::l oo:::::::::::oo  s:::::::::::ss    ee:::::::::::::e  
+    YYYYYYYYYYYYY    ooooooooooo       uuuuuuuu  uuuu     llllllll   ooooooooooo     sssssssssss        eeeeeeeeeeeeee
+    ''')
+    
     game_over_sound()
     input("Press ENTER to continue.")
     
