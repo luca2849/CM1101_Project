@@ -922,47 +922,46 @@ def print_class_menu(): # Function to print a menu to show the user class choice
     
     
 def class_action(command): # Function to apply class bonuses
-    global potion
-    global exp
-    global is_choose_class
-    global class_choice
+	global potion
+	global exp
+	global is_choose_class
+	global class_choice
 
-    if 0 == len(command):
-        return
-            
-    elif command[0] == 'alchemist':
-        potion['amount'] = 3
-        class_choice = 'Alchemist'
-
-    elif command[0] == 'warrior':
-        exp += 10
-        class_choice = 'Warrior'
-
-    elif command[0] == 'mage':
-        exp += 5
-        potion['amount'] = 2
-        class_choice = 'Mage'
-    
-    else:
-        return
+	if 0 == len(command):
+		print("Please select a class")
+		return
+				
+	elif command[0] == 'alchemist':
+		potion['amount'] = 3
+		class_choice = 'Alchemist'
+	elif command[0] == 'warrior':
+		exp += 10
+		class_choice = 'Warrior'
+	elif command[0] == 'mage':
+		exp += 5
+		potion['amount'] = 2
+		class_choice = 'Mage'
+	else:
+		print("Please select a class")
+		return
 
     
 def choose_class(): # Function to get the players class choice
-    global choose_class
+	global choose_class
     
-    is_choose_class = True
+	is_choose_class = True
     
-    while is_choose_class:
-        print_class_menu()
+	while is_choose_class:
+		print_class_menu()
     
-        user_input = input(">>")
+		user_input = input(">>")
 
-        class_action(normalise_input(user_input))
+		class_action(normalise_input(user_input))
 
-        os.system('cls')
-
-        if class_choice != '':
-            is_choose_class = False    
+		os.system('cls')
+		print("Please Select an Appropriate Class")
+		if class_choice != '':
+			is_choose_class = False
         
         
 def main(): # Function for the main game loop
