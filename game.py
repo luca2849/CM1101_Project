@@ -405,14 +405,15 @@ def check_key(): # Function checks if the player has the boss room key
 
 def trap_room(): # Function for the quick-time event in the trap rooms
 	global exp
-	action = "s"
+	action = "s" #key that needs to be pressed
 	global dodge_check
 	def timeup(): # Nested function for when the player runs out of time
 		global dodge_check
-		print("The time's up! Press any key to continue.")
+		print("Unfortunately, you are impaled. Press any key to continue.")
 		dodge_check = True
 		t.cancel()
-	t = Timer(3, timeup)
+		
+	t = Timer(3, timeup) #timer that calls timeup() after 3 seconds; timer needs to be re-initialised every time
 	t.start()
 	print("Duck! (press 'S')\n")
 	usr_inp = str(getch())[2].lower()
@@ -993,6 +994,14 @@ def main(): # Function for the main game loop
             if item == trophy_for_winning_the_game:
                 print("-----------------------------------------------")
                 print()
+                print( '''       _         _       _   _                 
+                                | |       | |     | | (_)                
+  ___ ___  _ __   __ _ _ __ __ _| |_ _   _| | __ _| |_ _  ___  _ __  ___ 
+ / __/ _ \| '_ \ / _` | '__/ _` | __| | | | |/ _` | __| |/ _ \| '_ \/ __|
+| (_| (_) | | | | (_| | | | (_| | |_| |_| | | (_| | |_| | (_) | | | \__ \
+ \___\___/|_| |_|\__, |_|  \__,_|\__|\__,_|_|\__,_|\__|_|\___/|_| |_|___/
+                  __/ |                                                  
+                 |___/ ''')
                 print("You've completed the game!")
                 input("Press ENTER to continue.")
                 return
