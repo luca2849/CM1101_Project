@@ -432,14 +432,15 @@ def trap_room(): # Function for the quick-time event in the trap rooms
 	t.start()
 	usr_inp = str(getch())[2].lower()
 	if dodge_check:
-		usr_inp = ""
+	    usr_inp = ""
 	if usr_inp == action:
-		print("You survived the traps!")
-		exp += 15
+            os.system('cls')
+            print("You survived the traps!")
+            exp += 15
 	else:
-		t.cancel()
-		t = Timer(3, timeup)
-		return True
+	    t.cancel()
+	    t = Timer(3, timeup)
+	    return True
 	t.cancel()
 	t = Timer(3, timeup)
 	return False
@@ -471,13 +472,13 @@ def execute_go(direction): # Function to move the player
             return
         print_room(current_room)
         if current_room['trap']:
-            rooms['rm2']['exits'].pop('east', None)
             if trap_room():
                 death = True
                 return
             else:
                 print("You go back to the previous room to avoid any more unpleasantries.")
-                current_room = rooms['rm2']
+                execute_go("west")
+                rooms['rm2']['exits'].pop('east', None)
         
     else:
         print("-----------------------------------------------")
