@@ -38,7 +38,6 @@ def print_boss_battle(boss): # Function for printing boss battle information
     print()
     print("The boss appears in front of you.\n")
     print(boss.name, '\n')
-    print(boss.ascii_art, '\n')
     print(boss.description, '\n')
     
 
@@ -190,7 +189,9 @@ def boss_battle_seq(boss, boss_hp, max_boss_hp): # Function to print the boss ba
         if boss_hp > 0:
             print("-----------------------------------------------")
             print()
-            print(boss.name)
+            print(boss.name, '\n')
+            print(boss.ascii_art, '\n')
+            print(boss.description,'\n')
             display_monster_hp(boss_hp, max_boss_hp)
             print("You:")
             display_player_hp(player_hp, max_player_hp)
