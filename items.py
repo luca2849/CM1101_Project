@@ -80,9 +80,9 @@ ddos_attack_script = {
     'power' : 1
 }
 
-holy_hand_gernade = {
-    'name' : 'Holy Hand Gernade',
-    'id' : 'gernade',
+holy_hand_grenade = {
+    'name' : 'Holy Hand grenade',
+    'id' : 'grenade',
     'equippable' : True,
     'description' : """A grenade used by priests to cleanse the undead.""",
     'type' : 'weapon',
@@ -154,7 +154,7 @@ items = {
     'drumstick' : giraffe_drumstick,
     'claws' : nuclear_claws,
     'script' : ddos_attack_script,
-    'gernade' : holy_hand_gernade,
+    'grenade' : holy_hand_grenade,
     'bottle' : broken_bottle,
     'trident' : trident,
     'trophy' : trophy_for_winning_the_game,
