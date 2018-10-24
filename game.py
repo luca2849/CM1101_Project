@@ -30,9 +30,7 @@ def print_battle(monster_gen): # Function for printing battle information
     print("-----------------------------------------------")
     print()
     print("A monster blocks your way.\n")
-    print(monster_list[monster_gen].name, '\n')
-    print(monster_list[monster_gen].ascii_art, '\n')
-    print(monster_list[monster_gen].description, '\n')
+
 
 
 def print_boss_battle(boss): # Function for printing boss battle information
@@ -86,66 +84,64 @@ def is_battle(monster_hp): # Function for checking if a battle can continue by c
     
     
 def battle_seq(monster_gen, monster_hp, full_monster_hp): # Function to print the battle sequence
-    global exp
-    global player_hp
-    global max_player_hp
-    global death
-    
-    
-    while is_battle(monster_hp):
-        if monster_hp > 0:
-            print("-----------------------------------------------")
-            print()
-            print(monster_list[monster_gen].name)
-            display_monster_hp(monster_hp, full_monster_hp)
-            print("You:")
-            display_player_hp(player_hp, max_player_hp)
-            print()
-            print_battle_menu()
-            print()
-            print("-----------------------------------------------")
+	global exp
+	global player_hp
+	global max_player_hp
+	global death
+	while is_battle(monster_hp):
+		if monster_hp > 0:
+			print("-----------------------------------------------")
+			print()
+			print(monster_list[monster_gen].name, '\n')
+			print(monster_list[monster_gen].ascii_art, '\n')
+			print(monster_list[monster_gen].description, '\n')
+			display_monster_hp(monster_hp, full_monster_hp)
+			print("You:")
+			display_player_hp(player_hp, max_player_hp)
+			print()
+			print_battle_menu()
+			print()
+			print("-----------------------------------------------")
+			player_input = input(">>")
+			normalised_player_input = normalise_input(player_input)
+			os.system('cls')
             
-            player_input = input(">>")
-            normalised_player_input = normalise_input(player_input)
-            os.system('cls')
-            
-            if 0 == len(normalised_player_input):
-                 continue
+			if 0 == len(normalised_player_input):
+				continue
 
-            if normalised_player_input[0] == "attack":
-                player_atk = random_atk(player_level, equipped['weapon'])
-                monster_hp -= player_atk
-                print("-----------------------------------------------")
-                print()
-                print("You deal", player_atk, "damage.")
-                if monster_hp > 0:
-                    monster_atk = random_monster_atk(monster_gen)
-                    player_hp -= monster_atk
-                    print(monster_list[monster_gen].name,"deals", monster_atk, "to you.")
-                    print()
-                    if player_hp <= 0:
-                        death = True
-                        return
-            elif normalised_player_input[0] == 'use':
-                if normalised_player_input[1] == 'potion':
-                    execute_use(normalised_player_input[1])
-                else:
-                    print("-----------------------------------------------")
-                    print()
-                    print("Use what?\n")
-                    print("-----------------------------------------------")
-                
-            else:
-                print("Do what?\n")
-    exp_gain = int(random.uniform(monster_list[monster_gen].tier * 3, monster_list[monster_gen].tier * 5))
-    exp += exp_gain
-    print()
-    print("You defeated", monster_list[monster_gen].name)
-    print("You gain", exp_gain, "exp.")
-    print()
-    print_if_level_up()
-    after_battle(monster_gen)
-    print("-----------------------------------------------")
+			if normalised_player_input[0] == "attack":
+				player_atk = random_atk(player_level, equipped['weapon'])
+				monster_hp -= player_atk
+				print("-----------------------------------------------")
+				print()
+				print("You deal", player_atk, "damage.")
+				if monster_hp > 0:
+					monster_atk = random_monster_atk(monster_gen)
+					player_hp -= monster_atk
+					print(monster_list[monster_gen].name,"deals", monster_atk, "to you.")
+					print()
+					if player_hp <= 0:
+						death = True
+						return
+			elif normalised_player_input[0] == 'use':
+				if normalised_player_input[1] == 'potion':
+					execute_use(normalised_player_input[1])
+				else:
+					print("-----------------------------------------------")
+					print()
+					print("Use what?\n")
+					print("-----------------------------------------------")
+			else:
+				print("Do what?\n")
+	exp_gain = int(random.uniform(monster_list[monster_gen].tier * 3, monster_list[monster_gen].tier * 5))
+	exp += exp_gain
+	print()
+	print("You defeated", monster_list[monster_gen].name)
+	print("You gain", exp_gain, "exp.")
+	print()
+	print_if_level_up()
+	after_battle(monster_gen)
+	print("-----------------------------------------------")
     
 
 def after_battle(monster_gen): # Function for the after-battle sequence
@@ -998,6 +994,14 @@ def main(): # Function for the main game loop
             if item == trophy_for_winning_the_game:
                 print("-----------------------------------------------")
                 print()
+                print( '''       _         _       _   _                 
+                                | |       | |     | | (_)                
+  ___ ___  _ __   __ _ _ __ __ _| |_ _   _| | __ _| |_ _  ___  _ __  ___ 
+ / __/ _ \| '_ \ / _` | '__/ _` | __| | | | |/ _` | __| |/ _ \| '_ \/ __|
+| (_| (_) | | | | (_| | | | (_| | |_| |_| | | (_| | |_| | (_) | | | \__ \
+ \___\___/|_| |_|\__, |_|  \__,_|\__|\__,_|_|\__,_|\__|_|\___/|_| |_|___/
+                  __/ |                                                  
+                 |___/ ''')
                 print("You've completed the game!")
                 input("Press ENTER to continue.")
                 return
