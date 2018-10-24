@@ -329,5 +329,3 @@ while True:
     print_random_monster(0,len(monster_list))
     sleep(1)
 '''
-
-print(man_made_mermaid.ascii_art)
