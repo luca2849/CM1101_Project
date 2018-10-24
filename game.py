@@ -932,24 +932,24 @@ def class_action(command): # Function to apply class bonuses
 	global exp
 	global is_choose_class
 	global class_choice
-
-	if 0 == len(command):
-		print("Please select a class")
-		return
+	os.system('cls')
+	if len(command) == 0:
+            print("Please Select an Appropriate Class")
+            return
 				
 	elif command[0] == 'alchemist':
-		potion['amount'] = 3
-		class_choice = 'Alchemist'
+            potion['amount'] = 3
+            class_choice = 'Alchemist'
 	elif command[0] == 'warrior':
-		exp += 10
-		class_choice = 'Warrior'
+            exp += 10
+            class_choice = 'Warrior'
 	elif command[0] == 'mage':
-		exp += 5
-		potion['amount'] = 2
-		class_choice = 'Mage'
+            exp += 5
+            potion['amount'] = 2
+            class_choice = 'Mage'
 	else:
-		print("Please select a class")
-		return
+            print("Please Select an Appropriate Class")
+            return
 
     
 def choose_class(): # Function to get the players class choice
@@ -963,9 +963,7 @@ def choose_class(): # Function to get the players class choice
 		user_input = input(">>")
 
 		class_action(normalise_input(user_input))
-
-		os.system('cls')
-		print("Please Select an Appropriate Class")
+		
 		if class_choice != '':
 			is_choose_class = False
         
