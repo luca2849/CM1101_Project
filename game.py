@@ -124,13 +124,12 @@ def battle_seq(monster_gen, monster_hp, full_monster_hp): # Function to print th
 						death = True
 						return
 			elif normalised_player_input[0] == 'use':
-				if normalised_player_input[1] == 'potion':
+				if len(normalised_player_input) > 1 and normalised_player_input[1] == 'potion':
 					execute_use(normalised_player_input[1])
 				else:
 					print("-----------------------------------------------")
 					print()
 					print("Use what?\n")
-					print("-----------------------------------------------")
 			else:
 				print("Do what?\n")
 	exp_gain = int(random.uniform(monster_list[monster_gen].tier * 3, monster_list[monster_gen].tier * 5))
@@ -222,13 +221,12 @@ def boss_battle_seq(boss, boss_hp, max_boss_hp): # Function to print the boss ba
                     
             elif normalised_player_input[0] == 'use':
                 
-                if normalised_player_input[1] == 'potion':
+                if len(normalised_player_input) > 1 and normalised_player_input[1] == 'potion':
                     execute_use(normalised_player_input[1])
                 else:
                     print("-----------------------------------------------")
                     print()
                     print("Use what?\n")
-                    print("-----------------------------------------------")
             else:
                 print("Do what?\n")
                 
@@ -1019,7 +1017,7 @@ def main(): # Function for the main game loop
                                 | |       | |     | | (_)                
   ___ ___  _ __   __ _ _ __ __ _| |_ _   _| | __ _| |_ _  ___  _ __  ___ 
  / __/ _ \| '_ \ / _` | '__/ _` | __| | | | |/ _` | __| |/ _ \| '_ \/ __|
-| (_| (_) | | | | (_| | | | (_| | |_| |_| | | (_| | |_| | (_) | | | \__ \
+| (_| (_) | | | | (_| | | | (_| | |_| |_| | | (_| | |_| | (_) | | | \__ \\
  \___\___/|_| |_|\__, |_|  \__,_|\__|\__,_|_|\__,_|\__|_|\___/|_| |_|___/
                   __/ |                                                  
                  |___/ ''')
