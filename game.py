@@ -273,8 +273,6 @@ def battle(monster_number): # Function to decided what monster to spawn dependen
 
 
 #others  
-def game_over():
-    print()
     
 def is_empty(any_structure):
     if any_structure:
@@ -738,7 +736,26 @@ def level_up():
 def game_over():
     print("-----------------------------------------------")
     print()
-    print("Game Over \nYou lose")
+    print("Game Over \n")
+    print('''
+YYYYYYY       YYYYYYY                                     lllllll                                                       
+Y:::::Y       Y:::::Y                                     l:::::l                                                       
+Y:::::Y       Y:::::Y                                     l:::::l                                                       
+Y::::::Y     Y::::::Y                                     l:::::l                                                       
+YYY:::::Y   Y:::::YYYooooooooooo   uuuuuu    uuuuuu        l::::l    ooooooooooo       ssssssssss       eeeeeeeeeeee    
+   Y:::::Y Y:::::Y oo:::::::::::oo u::::u    u::::u        l::::l  oo:::::::::::oo   ss::::::::::s    ee::::::::::::ee  
+    Y:::::Y:::::Y o:::::::::::::::ou::::u    u::::u        l::::l o:::::::::::::::oss:::::::::::::s  e::::::eeeee:::::ee
+     Y:::::::::Y  o:::::ooooo:::::ou::::u    u::::u        l::::l o:::::ooooo:::::os::::::ssss:::::se::::::e     e:::::e
+      Y:::::::Y   o::::o     o::::ou::::u    u::::u        l::::l o::::o     o::::o s:::::s  ssssss e:::::::eeeee::::::e
+       Y:::::Y    o::::o     o::::ou::::u    u::::u        l::::l o::::o     o::::o   s::::::s      e:::::::::::::::::e 
+       Y:::::Y    o::::o     o::::ou::::u    u::::u        l::::l o::::o     o::::o      s::::::s   e::::::eeeeeeeeeee  
+       Y:::::Y    o::::o     o::::ou:::::uuuu:::::u        l::::l o::::o     o::::ossssss   s:::::s e:::::::e           
+       Y:::::Y    o:::::ooooo:::::ou:::::::::::::::uu     l::::::lo:::::ooooo:::::os:::::ssss::::::se::::::::e          
+    YYYY:::::YYYY o:::::::::::::::o u:::::::::::::::u     l::::::lo:::::::::::::::os::::::::::::::s  e::::::::eeeeeeee  
+    Y:::::::::::Y  oo:::::::::::oo   uu::::::::uu:::u     l::::::l oo:::::::::::oo  s:::::::::::ss    ee:::::::::::::e  
+    YYYYYYYYYYYYY    ooooooooooo       uuuuuuuu  uuuu     llllllll   ooooooooooo     sssssssssss        eeeeeeeeeeeeee
+    ''')
+    
     game_over_sound()
     input("Press ENTER to continue.")
     
@@ -932,24 +949,24 @@ def class_action(command): # Function to apply class bonuses
 	global exp
 	global is_choose_class
 	global class_choice
-
-	if 0 == len(command):
-		print("Please select a class")
-		return
+	os.system('cls')
+	if len(command) == 0:
+            print("Please Select an Appropriate Class")
+            return
 				
 	elif command[0] == 'alchemist':
-		potion['amount'] = 3
-		class_choice = 'Alchemist'
+            potion['amount'] = 3
+            class_choice = 'Alchemist'
 	elif command[0] == 'warrior':
-		exp += 10
-		class_choice = 'Warrior'
+            exp += 10
+            class_choice = 'Warrior'
 	elif command[0] == 'mage':
-		exp += 5
-		potion['amount'] = 2
-		class_choice = 'Mage'
+            exp += 5
+            potion['amount'] = 2
+            class_choice = 'Mage'
 	else:
-		print("Please select a class")
-		return
+            print("Please Select an Appropriate Class")
+            return
 
     
 def choose_class(): # Function to get the players class choice
@@ -963,9 +980,7 @@ def choose_class(): # Function to get the players class choice
 		user_input = input(">>")
 
 		class_action(normalise_input(user_input))
-
-		os.system('cls')
-		print("Please Select an Appropriate Class")
+		
 		if class_choice != '':
 			is_choose_class = False
         
