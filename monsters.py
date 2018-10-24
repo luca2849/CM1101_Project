@@ -75,13 +75,13 @@ man_made_mermaid = monster('Man-Made Mermaid', '''Created in a lab off-shore far
 Following her escape she took refuge within this dungeon and swears to protect it from any intruders at all costs.''', 2, [trident], '''
              __
                _o8o_o888888oo     _
-                 o88888888 ,|    /#\\\
+                 o88888888 ,|    /#\\\\\\
         \`.    /| `o88'88o _/    \_/
          \ `-.' |      __) \__   _Y_
           `-. .-'     /       \ /[_/
             | \      / (_(_ /\ y /
             |  \     \ /.  (  \_/
-            |   \     V\____\\\
+            |   \     V\____\\\\\\
             \    `-._/      |
              \     _/      /
               \           /
@@ -330,3 +330,4 @@ while True:
     sleep(1)
 '''
 
+print(man_made_mermaid.ascii_art)
