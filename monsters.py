@@ -75,13 +75,13 @@ man_made_mermaid = monster('Man-Made Mermaid', '''Created in a lab off-shore far
 Following her escape she took refuge within this dungeon and swears to protect it from any intruders at all costs.''', 2, [trident], '''
              __
                _o8o_o888888oo     _
-                 o88888888 ,|    /#\
+                 o88888888 ,|    /#\\\
         \`.    /| `o88'88o _/    \_/
          \ `-.' |      __) \__   _Y_
           `-. .-'     /       \ /[_/
             | \      / (_(_ /\ y /
             |  \     \ /.  (  \_/
-            |   \     V\____\
+            |   \     V\____\\\
             \    `-._/      |
              \     _/      /
               \           /
@@ -94,15 +94,15 @@ He was outcast by his tribe and then found peace with his height when he was tak
       |_|
     <(+ +)>
      ( u )             o
-        \\            /
+        \\\\            /
          ------------/
         /|          /|
        //||      ( /||
       // ||______//_||
      //  ||     //  ||
     //   ||    //   ||
-    \\   ||    \\   ||
-     \\  ||     \\  ||
+    \\\\   ||    \\\\   ||
+     \\\\  ||     \\\\  ||
      //  ||     //  ||
     /_\ /__\   /_\ /__\ ''')
 
@@ -133,12 +133,12 @@ deceased_priest = monster('Deceased Priest', 'He’s just a zombie but dressed a
                   #\_  -  _/#
                 ,'   `"""`    `.
               ,'      \X/      `.
-             /         X     ____\
+             /         X     ____\\
             /          v   ,`  v  `,
            /    /         ( <==+==> )
            `-._/|__________\   ^   /
-          (\\)  |______@____\  ^  /
-            \\  |     ( )    \ ^ /
+          (\\\\)  |______@____\  ^  /
+            \\\\  |     ( )    \ ^ /
              )  |             \^/
             (   |             |v
            <(^)>|             |
@@ -214,22 +214,22 @@ Good luck with this big bad boy, you're going to need it.''', 3, [maracas], '''_
                     ~~     (   _}      
                            `. ~(
                              )  \\
-/,`--'~--\ ''')
+                            /,`--'~--\ ''')
 dragon_in_a_wagon = monster('Dragon in a Wagon', '''Don't underestimate this fiery little boy, he may not look like much with his little red wagon but he can really put up a fight.
 None of the dragons back at home could put up a decent fight, so now he seeks some worthy opponents.''', 3, [dragons_breath_spell], '''
-     ( _)                ( _)
-            / / \\              / /\_\_
-           / /   \\            / / | \ \
-          / /     \\          / /  |\ \ \
-         /  /   ,  \ ,       / /   /|  \ \
-        /  /    |\_ /|      / /   / \   \_\
-       /  /  |\/ _ '_|\    / /   /   \    \\
-      |  /   |/  0 \0\ \  / |    |    \    \\
-      |    |\|      \_\_ /  /    |     \    \\
-      |  | |/    \.\ o\o)  /      \     |    \\
-      \    |     /\\`v-v  /        |    |     \\
-       | \/    /_| \\_|  /         |    | \    \\
-       | |    /__/_     /   _____  |    |  \    \\
+      ( _)                ( _)
+            / / \\\\              / /\_\_
+           / /   \\\\            / / | \ \\
+          / /     \\\\          / /  |\ \ \\
+         /  /   ,  \ ,       / /   /|  \ \\
+        /  /    |\_ /|      / /   / \   \_\\
+       /  /  |\/ _ '_|\    / /   /   \    \\\\
+      |  /   |/  0 \\0\ \  / |    |    \    \\\\
+      |    |\|      \_\_ /  /    |     \    \\\\
+      |  | |/    \.\ o\o)  /      \     |    \\\\
+      \    |     /\\\\`v-v  /        |    |     \\\\
+       | \/    /_| \\\\_|  /         |    | \    \\\\
+       | |    /__/_     /   _____  |    |  \    \\\\
        \|    [__]  \_/  |_________  \   |   \    ()
         /    [___] (    \         \  |\ |   |   //
        |    [___]                  |\| \|   /  |/
@@ -330,5 +330,3 @@ while True:
     sleep(1)
 '''
 
-'''for i in range (12):
-  print(monster_list[i].ascii_art)'''

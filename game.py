@@ -243,13 +243,13 @@ def boss_battle_seq(boss, boss_hp, max_boss_hp): # Function to print the boss ba
     print("-----------------------------------------------")
 
     
-    
 def battle_boss(boss): # Function to start the boss battle
     print_boss_battle(boss)
     boss_battle_seq(boss, boss_hp, max_boss_hp)
     if death:
         return
     
+
 def battle(monster_number): # Function to decided what monster to spawn dependent on the room and tier
     x = 0
     y = 1
@@ -467,6 +467,8 @@ def execute_go(direction): # Function to move the player
                 dropped_items.append(current_room['item'])
         ###move_sound()
         room_event(current_room)
+        if death:
+            return
         print_room(current_room)
         if current_room['trap']:
             rooms['rm2']['exits'].pop('east', None)
@@ -634,7 +636,6 @@ def execute_use(item_id): # Function to letthe player use potions to heal
             
 def execute_command(command, room): # Function to process general commands and route them to their functions
     if len(command) == 0:
-
         return
 
     if command[0] == "go":
@@ -926,47 +927,46 @@ def print_class_menu(): # Function to print a menu to show the user class choice
     
     
 def class_action(command): # Function to apply class bonuses
-    global potion
-    global exp
-    global is_choose_class
-    global class_choice
+	global potion
+	global exp
+	global is_choose_class
+	global class_choice
 
-    if 0 == len(command):
-        return
-            
-    elif command[0] == 'alchemist':
-        potion['amount'] = 3
-        class_choice = 'Alchemist'
-
-    elif command[0] == 'warrior':
-        exp += 10
-        class_choice = 'Warrior'
-
-    elif command[0] == 'mage':
-        exp += 5
-        potion['amount'] = 2
-        class_choice = 'Mage'
-    
-    else:
-        return
+	if 0 == len(command):
+		print("Please select a class")
+		return
+				
+	elif command[0] == 'alchemist':
+		potion['amount'] = 3
+		class_choice = 'Alchemist'
+	elif command[0] == 'warrior':
+		exp += 10
+		class_choice = 'Warrior'
+	elif command[0] == 'mage':
+		exp += 5
+		potion['amount'] = 2
+		class_choice = 'Mage'
+	else:
+		print("Please select a class")
+		return
 
     
 def choose_class(): # Function to get the players class choice
-    global choose_class
+	global choose_class
     
-    is_choose_class = True
+	is_choose_class = True
     
-    while is_choose_class:
-        print_class_menu()
+	while is_choose_class:
+		print_class_menu()
     
-        user_input = input(">>")
+		user_input = input(">>")
 
-        class_action(normalise_input(user_input))
+		class_action(normalise_input(user_input))
 
-        os.system('cls')
-
-        if class_choice != '':
-            is_choose_class = False    
+		os.system('cls')
+		print("Please Select an Appropriate Class")
+		if class_choice != '':
+			is_choose_class = False
         
         
 def main(): # Function for the main game loop
