@@ -130,7 +130,6 @@ def battle_seq(monster_gen, monster_hp, full_monster_hp): # Function to print th
 					print("-----------------------------------------------")
 					print()
 					print("Use what?\n")
-					print("-----------------------------------------------")
 			else:
 				print("Do what?\n")
 	exp_gain = int(random.uniform(monster_list[monster_gen].tier * 3, monster_list[monster_gen].tier * 5))
@@ -228,7 +227,6 @@ def boss_battle_seq(boss, boss_hp, max_boss_hp): # Function to print the boss ba
                     print("-----------------------------------------------")
                     print()
                     print("Use what?\n")
-                    print("-----------------------------------------------")
             else:
                 print("Do what?\n")
                 
