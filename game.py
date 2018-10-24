@@ -38,6 +38,7 @@ def print_boss_battle(boss): # Function for printing boss battle information
     print()
     print("The boss appears in front of you.\n")
     print(boss.name, '\n')
+    print(boss.ascii_art, '\n')
     print(boss.description, '\n')
     
 
