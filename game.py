@@ -408,42 +408,44 @@ def check_key(): # Function checks if the player has the boss room key
     return False
 
 def trap_room(): # Function for the quick-time event in the trap rooms
-    action = "s"
-    global dodge_check
-    def timeup(): # Nested function for when the player runs out of time
-        global dodge_check
-        print("The time's up! Press any key to continue.")
-        dodge_check = True
-        t.cancel()
-    t = Timer(3, timeup)
-    t.start()
-    print("Duck! (press 'S')\n")
-    usr_inp = str(getch())[2].lower()
-    if dodge_check:
-        usr_inp = ""
-    if usr_inp == action:
-        os.system('cls')
-        print("A second spike is coming out of the floor!\n\n" + "Jump! (press 'W')")
-        action = "w"
-        t.cancel()
-        t = Timer(3, timeup)
-    else:
-        t.cancel()
-        t = Timer(3, timeup)
-        return True
-    t.start()
-    usr_inp = str(getch())[2].lower()
-    if dodge_check:
-        usr_inp = ""
-    if usr_inp == action:
-        print("You survived the traps!")
-    else:
-        t.cancel()
-        t = Timer(3, timeup)
-        return True
-    t.cancel()
-    t = Timer(3, timeup)
-    return False
+	global exp
+	action = "s"
+	global dodge_check
+	def timeup(): # Nested function for when the player runs out of time
+		global dodge_check
+		print("The time's up! Press any key to continue.")
+		dodge_check = True
+		t.cancel()
+	t = Timer(3, timeup)
+	t.start()
+	print("Duck! (press 'S')\n")
+	usr_inp = str(getch())[2].lower()
+	if dodge_check:
+		usr_inp = ""
+	if usr_inp == action:
+		os.system('cls')
+		print("A second spike is coming out of the floor!\n\n" + "Jump! (press 'W')")
+		action = "w"
+		t.cancel()
+		t = Timer(3, timeup)
+	else:
+		t.cancel()
+		t = Timer(3, timeup)
+		return True
+	t.start()
+	usr_inp = str(getch())[2].lower()
+	if dodge_check:
+		usr_inp = ""
+	if usr_inp == action:
+		print("You survived the traps!")
+		exp += 15
+	else:
+		t.cancel()
+		t = Timer(3, timeup)
+		return True
+	t.cancel()
+	t = Timer(3, timeup)
+	return False
 
 def execute_go(direction): # Function to move the player
     global current_room
