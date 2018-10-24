@@ -5,7 +5,7 @@ from items import *
 r1 = {
     'name': 'room 1',
     'position': 'position1',
-    'description':"""There's a potion in the room.""",
+    'description':"There's a potion in the room.",
     'exits': {'north': 'rm5', 'east': 'rm2'},
     'monster': 1,
     'boss': None,
@@ -16,7 +16,7 @@ r1 = {
 r2 = {
     'name': 'room 2',
     'position': 'position2',
-    'description':"""There's a potion in the room.""",
+    'description':"There's a potion in the room.",
     'exits': {'north': 'rm6', 'east': 'rm3', 'west': 'rm1'},
     'monster': 1,
     'boss': None,
@@ -27,7 +27,7 @@ r2 = {
 r3 = {
     'name': 'room 3',
     'position': 'position3',
-    'description':"""It's a trap! A spike is coming out of the wall!""",
+    'description':"It's a trap! A spike is coming out of the wall!",
     'exits': {'west': 'rm2'},
     'monster': None,
     'boss': None,
@@ -38,7 +38,7 @@ r3 = {
 r4 = {
     'name': 'room 4',
     'position': 'position4',
-    'description':"""No monsters in this room, you see something shining in the corner.""",
+    'description':"No monsters in this room, you see something shining in the corner.",
     'exits': {'east': 'rm5'},
     'monster': None,
     'boss': None,
@@ -49,7 +49,7 @@ r4 = {
 r5 = {
     'name': 'room 5',
     'position': 'position5',
-    'description':"""There's a potion in the room.""",
+    'description':"There's a potion in the room.",
     'exits': {'north': 'rm7','south': 'rm1', 'west': 'rm4'},
     'monster': 2,
     'boss': None,
@@ -60,7 +60,7 @@ r5 = {
 r6 = {
     'name': 'room 6',
     'position': 'position6',
-    'description':"""There's a potion in the room.""",
+    'description':"There's a potion in the room.",
     'exits': {'north': 'rm8', 'south': 'rm2'},
     'monster': 2,
     'boss': None,
@@ -71,7 +71,7 @@ r6 = {
 r7 = {
     'name': 'room 7',
     'position': 'position7',
-    'description':"""There's a potion in the room.""",
+    'description':"There's a potion in the room.",
     'exits': {'north': 'bossrm', 'east': 'rm8', 'south': 'rm5'},
     'monster': 3,
     'boss': None,
@@ -82,7 +82,7 @@ r7 = {
 r8 = {
     'name': 'room 8',
     'position': 'position8',
-    'description':"""There's a potion in the room.""",
+    'description':"There's a potion in the room.",
     'exits': {'south': 'rm6', 'east': 'rm9', 'west': 'rm7'},
     'monster': 3,
     'boss': None,
@@ -93,7 +93,7 @@ r8 = {
 r9 = {
     'name': 'room 9',
     'position': 'position9',
-    'description':"""There's a potion in the room.""",
+    'description':"There's a potion in the room.",
     'exits': {'west': 'rm8'},
     'monster': 3,
     'boss': None,
@@ -104,7 +104,7 @@ r9 = {
 boss = {
     'name': 'boss room',
     'position': 'position_boss',
-    'description':"""This is the room where the final boss stands. Legend has it that no one has defeted him before.""",
+    'description':"This is the room where the final boss stands. Legend has it that no one has defeted him before.",
     'exits': {},
     'monster': None,
     'boss': kirill_riding_a_bear,
@@ -115,7 +115,7 @@ boss = {
 start = {
     'name': 'start',
     'position': 'position_start',
-    'description':"""You woke up in this dark room. You don't know where you are.""",
+    'description':"You woke up in this dark room. You don't know where you are.",
     'exits': {'north': 'rm2'},
     'monster': None,
     'boss': None,

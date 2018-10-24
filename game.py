@@ -432,14 +432,15 @@ def trap_room(): # Function for the quick-time event in the trap rooms
 	t.start()
 	usr_inp = str(getch())[2].lower()
 	if dodge_check:
-		usr_inp = ""
+	    usr_inp = ""
 	if usr_inp == action:
-		print("You survived the traps!")
-		exp += 15
+            os.system('cls')
+            print("You survived the traps!")
+            exp += 15
 	else:
-		t.cancel()
-		t = Timer(3, timeup)
-		return True
+	    t.cancel()
+	    t = Timer(3, timeup)
+	    return True
 	t.cancel()
 	t = Timer(3, timeup)
 	return False
@@ -461,7 +462,7 @@ def execute_go(direction): # Function to move the player
         dropped_items = []
         if current_room['item'] is not None:
             if current_room['item'] == key:
-                if check_key() == False:
+                if not check_key():
                     dropped_items.append(current_room['item'])
             if current_room['item'] == potion:
                 dropped_items.append(current_room['item'])
@@ -474,6 +475,10 @@ def execute_go(direction): # Function to move the player
             if trap_room():
                 death = True
                 return
+            else:
+                print("You go back to the previous room to avoid any more unpleasantries.")
+                execute_go("west")
+                rooms['rm2']['exits'].pop('east', None)
         
     else:
         print("-----------------------------------------------")
@@ -596,6 +601,7 @@ def execute_drop(item_id): # Function to let players drop items
                 if item == items[item_id]:
                     dropped_items.append(items[item_id])
                     inventory.remove(items[item_id])
+                    
 
 
 def execute_use(item_id): # Function to letthe player use potions to heal
@@ -666,7 +672,7 @@ def execute_command(command, room): # Function to process general commands and r
         else:
             print("-----------------------------------------------")
             print()
-            print("Equip What?\n")
+            print("Equip what?\n")
             
     elif command[0] == 'drop':
         if len(command) > 1:
@@ -674,7 +680,7 @@ def execute_command(command, room): # Function to process general commands and r
         else:
             print("-----------------------------------------------")
             print()
-            print("Equip What?\n")
+            print("Equip what?\n")
     
     elif command[0] == 'obtain':
         if len(command) > 1:
@@ -829,7 +835,7 @@ def settings_action(command): # Function to process settings, show players a hel
             music = True
 
     elif command[0] == "help":
-        if show_help == True:
+        if show_help:
             show_help = False
             show_attack = False
             show_potions = False
@@ -838,7 +844,7 @@ def settings_action(command): # Function to process settings, show players a hel
             show_obtain = False
             show_drop = False
             show_map = False
-        elif show_help == False:
+        else:
             show_help = True
             show_attack = True
             show_potions = True
