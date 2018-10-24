@@ -243,13 +243,13 @@ def boss_battle_seq(boss, boss_hp, max_boss_hp): # Function to print the boss ba
     print("-----------------------------------------------")
 
     
-    
 def battle_boss(boss): # Function to start the boss battle
     print_boss_battle(boss)
     boss_battle_seq(boss, boss_hp, max_boss_hp)
     if death:
         return
     
+
 def battle(monster_number): # Function to decided what monster to spawn dependent on the room and tier
     x = 0
     y = 1
@@ -467,6 +467,8 @@ def execute_go(direction): # Function to move the player
                 dropped_items.append(current_room['item'])
         ###move_sound()
         room_event(current_room)
+        if death:
+            return
         print_room(current_room)
         if current_room['trap']:
             if trap_room():

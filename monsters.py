@@ -330,6 +330,3 @@ while True:
     sleep(1)
 '''
 
-for i in range (12):
-  print(monster_list[i].ascii_art)
-print(kirill_riding_a_bear.ascii_art)
