@@ -124,7 +124,7 @@ def battle_seq(monster_gen, monster_hp, full_monster_hp): # Function to print th
 						death = True
 						return
 			elif normalised_player_input[0] == 'use':
-				if normalised_player_input[1] == 'potion':
+				if len(normalised_player_input) > 1 and normalised_player_input[1] == 'potion':
 					execute_use(normalised_player_input[1])
 				else:
 					print("-----------------------------------------------")
@@ -222,7 +222,7 @@ def boss_battle_seq(boss, boss_hp, max_boss_hp): # Function to print the boss ba
                     
             elif normalised_player_input[0] == 'use':
                 
-                if normalised_player_input[1] == 'potion':
+                if len(normalised_player_input) > 1 and normalised_player_input[1] == 'potion':
                     execute_use(normalised_player_input[1])
                 else:
                     print("-----------------------------------------------")
