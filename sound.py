@@ -20,9 +20,10 @@ def game_over_sound():
     sleep(0.25)
     winsound.Beep(261, 3000)
     
-
+'''
 def move_sound():
     winsound.PlaySound(os.getcwd() + '\\sample\\Dress_shoe_jog_on_concrete', winsound.SND_LOOP|winsound.SND_ASYNC)
     #Sound: Dress shoe jog on concrete https://www.youtube.com/audiolibrary/soundeffects/
     sleep(2)
     winsound.PlaySound(os.getcwd() + '\\sample\\rolemu_-_La_Calahorra' , winsound.SND_LOOP|winsound.SND_ASYNC)
+'''
