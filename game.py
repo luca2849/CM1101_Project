@@ -631,7 +631,6 @@ def execute_use(item_id): # Function to letthe player use potions to heal
             
 def execute_command(command, room): # Function to process general commands and route them to their functions
     if len(command) == 0:
-
         return
 
     if command[0] == "go":
