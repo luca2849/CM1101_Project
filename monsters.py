@@ -126,7 +126,7 @@ big_horn_unicorn = monster ('Big Horn Unicorn', 'This bad boy has an absolute un
            `\_|                   (,~~  
                                    \~\\
                                     ~~ ''')
-deceased_priest = monster('Deceased Priest', 'He’s just a zombie but dressed as a priest. No one really knows how he got the outfit, he was a plumber before he died.', 2, [holy_hand_gernade], '''
+deceased_priest = monster('Deceased Priest', 'He’s just a zombie but dressed as a priest. No one really knows how he got the outfit, he was a plumber before he died.', 2, [holy_hand_grenade], '''
                     #,-. ,-.#
                   () a   e ()
                   (   (_)   )
