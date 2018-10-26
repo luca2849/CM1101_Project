@@ -59,7 +59,6 @@ def display_player_hp(player_hp, full_player_hp): # Function for displaying play
     health = player_hp
     max_health = full_player_hp
     health_dashes = 20
-    
     dash_convert = max_health/health_dashes
     current_dashes = int(health/dash_convert)
     remaining_health = health_dashes - current_dashes
@@ -625,7 +624,7 @@ def execute_use(item_id): # Function to letthe player use potions to heal
                 player_hp += max_player_hp // 4
                 restored_health = max_player_hp // 4
                 if player_hp > max_player_hp:
-                    restored_health -= max_player_hp - player_hp
+                    restored_health = max_player_hp - player_hp
                     player_hp = max_player_hp
                 print("You restored " + str(restored_health) + " health.\n")
             else:
